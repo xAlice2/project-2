@@ -1,0 +1,16 @@
+<!-- Create partials for alerts: here we create two conditionals that will look for error flash 
+    messages or success flash messages that were created in various routes. We will be adding 
+    classes on these messages to display in green for success messages and red for error messages 
+-->
+
+<% if (alerts.error) { %>
+    <% alerts.error.forEach(msg => { %>
+        <div class="alert alert-danger"><%= msg %></div>
+   <% }) %>
+<% } %>
+
+<% if (alerts.success) { %>
+    <% alerts.success.forEach(msg => { %>
+        <div class="alert alert-success"><%= msg %></div>
+   <% }) %>
+<% } %>
