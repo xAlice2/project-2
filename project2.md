@@ -4,21 +4,39 @@ Fork & Clone this repo.
 
 ## Part 1
 
-- [ ] Review the [Project 2 requirements](https://romebell.gitbook.io/seirfx-621/projects/project-2)
+- [x] Review the [Project 2 requirements](https://romebell.gitbook.io/seirfx-621/projects/project-2)
 
-- [ ] Check out some [examples](https://romebell.gitbook.io/seirfx-621/projects/past-projects/project2)
+- [x] Check out some [examples](https://romebell.gitbook.io/seirfx-621/projects/past-projects/project2)
 
-- [ ] In this space below, list **THREE** ideas for your Project 2. For each idea, include [user stories](https://www.atlassian.com/agile/project-management/user-stories) for each idea and a link to the API(s) you want to use for it.
+- [x] In this space below, list **THREE** ideas for your Project 2. For each idea, include [user stories](https://www.atlassian.com/agile/project-management/user-stories) for each idea and a link to the API(s) you want to use for it.
 
 --------------------------------------------------------
-1. 
-2. 
-3.
+1. Student Organizer
+life quotes:
+https://zenquotes.io/keywords/life
+
+affirmations:
+https://www.affirmations.dev/
+
+to-do list:
+https://developer.todoist.com/guides/#our-apis
+
+news headline:
+https://newsapi.org/
+
+calendar
+https://fullcalendar.io/docs
+
+2. e-commerce:
+https://fakestoreapi.com/
+
+3. game
 ---------------------------------------------------------
 
-- [ ] Make a PR when you're done!
+- [x] Make a PR when you're done!
 
----
+---User Experience
+
 
 ## Part 2
 
@@ -32,9 +50,11 @@ In the space below:
 
 ----------------------------------------------------------
 ### User Stories
+I am a student/worker who has a clutter of browser tabs and apps that I need to do my work
 
 ----------------------------------------------------------
 ### Wireframes
+https://www.figma.com/file/UFmnxRgD7fxHrm7Q4y5c1g/project-2
 
 ----------------------------------------------------------
 
@@ -71,8 +91,8 @@ Make a PR when you're done!
 ### AUTH/SECURITY (Mostly From Template Boilerplate)
 - [ ] Log in works (required: boilerplate or better)
 - [ ] Sensible error messages for bad login info  (boilerplate or better)
-- [ ] Passwords hashed in database
-- [ ] Passwords in form are input type="password" (dots)
+- [x] Passwords hashed in database
+- [x] Passwords in form are input type="password" (dots)
 - [ ] Password verification is checked
 - [ ] Can't sneak edit/delete data that I don't own by typing in random ids
 ```
@@ -81,7 +101,7 @@ Make a PR when you're done!
 ### GITHUB USAGE
 - [ ] Appropriate Use of Github
 - [ ] `README` is included and is descriptive
-- [ ] `.gitignore` properly set up
+- [x] `.gitignore` properly set up
 - [ ] No API keys in Github code (used a .env file)
 - [ ] Multiple commits per day
 - [ ] Repo up on day 1 of project week or sooner

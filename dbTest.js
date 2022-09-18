@@ -87,3 +87,34 @@ async function deleteUser() {
     }
 }
 // @todo run deleteUser function below
+
+async function createTodo() {
+    try {
+        const newTodo = await db.todo.create({
+            title: "test walk dog",
+            userId: 1
+        });
+        console.log('my new test item todo >>>', newTodo);
+    } catch (error) {
+        console.log('new item was not created b/c of >>>', error);
+    }
+    
+}
+
+
+async function updateTodo() {
+    try {
+        const updateTodo = await db.todo.update({
+            title: 'Brain Taco'
+        }, {
+            where: {
+                title: 'test walk dog'
+            }
+        });
+        console.log('number of users updated', updateTodo);
+    } catch (error) {
+        console.log('did not update user(s) because of >>>', error);
+    }
+}
+
+updateTodo();
