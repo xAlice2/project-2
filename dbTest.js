@@ -90,17 +90,45 @@ async function deleteUser() {
 
 async function createTodo() {
     try {
+        const cDate = new Date().toISOString();
         const newTodo = await db.todo.create({
-            title: "test walk dog",
-            userId: 1
+            userId: 1,
+            createdAt: cDate,
+            updatedAt: cDate
         });
+
+        const newTask1 = await db.task.create({
+            title: "test walk cat 1",
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+        const newTask2 = await db.task.create({
+            title: "test walk cat 2",
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+        const newTaskDetails1 = await db.taskDetails.create({
+            todoId: newTodo.id,
+            taskId: newTask1.id,
+            complete: false,
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+        const newTaskDetails2 = await db.taskDetails.create({
+            todoId: newTodo.id,
+            taskId: newTask2.id,
+            complete: false,
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+
         console.log('my new test item todo >>>', newTodo);
     } catch (error) {
         console.log('new item was not created b/c of >>>', error);
     }
     
 }
-
+createTodo()
 
 async function updateTodo() {
     try {
@@ -117,4 +145,4 @@ async function updateTodo() {
     }
 }
 
-updateTodo();
+// updateTodo();

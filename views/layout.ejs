@@ -9,13 +9,27 @@
   </head>
   <body>
     <%- include('partials/alerts') %>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
 
     <% if (!currentUser) {%>
-      <li><a href="/auth/signup">Signup</a></li>
+      <li class="nav-item"><a href="/auth/signup">Signup</a></li>
       <li><a href="/auth/login">Login</a></li>
     <% } else { %>
-      <li><a href="/auth/logout">Logout</a></li>
-      <li><a href="/profile">Profile</a></li>
+      <li class="nav-item"><a href="/auth/logout">Logout</a></li>
+      <li class="nav-item"><a href="/profile">Profile</a></li>
     <% } %>
 
     <%- body %> 

@@ -8,6 +8,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('./config/ppConfig');  //allows us to use passports in our pp application
 const isLoggedIn = require('./middleware/isLoggedIn');
+const db = require('./models');
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('server.js console.log >>>>>', SECRET_SESSION);
@@ -49,21 +50,46 @@ app.use((req, res, next) => { // next allows us to do whatever the next thing is
 });
 
 
-
-
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('main/index');
 })
 
 // access to all of our auth routes GET /auth/login, GET /auth/signup POST routes
-app.use('/auth', require('./controllers/auth'));
+app.use('/auth', require('./routes/auth'));
+app.use('/todo', require('./routes/todo'));
 
 
-// Add this above /auth controllers
+
+
+/**
+ *  ISLOGGEDIN
+ *      ./views/PAGES/
+ *            contains pages only viewable after user is logged in
+ ===================================================================== */
+
+app.get('/main', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  res.render('views/pages/main', { id, name, email });
+});
+
 app.get('/profile', isLoggedIn, (req, res) => {
   const { id, name, email } = req.user.get(); 
-  res.render('profile', { id, name, email });
+  res.render('views/pages/profile', { id, name, email });
 });
+
+app.get('/profile', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  res.render('views/pages/profile', { id, name, email });
+});
+
+
+app.get('/articles', isLoggedIn, (req, res) => {
+  res.render('views/pages/articles', {
+      articles: posts
+  })
+})
+
+
 
 
 const PORT = process.env.PORT || 3000;
