@@ -1,4 +1,3 @@
-
 //IMPORTS
 require('dotenv').config();
 const express = require('express');
@@ -9,6 +8,7 @@ const flash = require('connect-flash');
 const passport = require('./config/ppConfig');  //allows us to use passports in our pp application
 const isLoggedIn = require('./middleware/isLoggedIn');
 const db = require('./models');
+const axios = require('axios');
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('server.js console.log >>>>>', SECRET_SESSION);
@@ -20,6 +20,7 @@ app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'))
 app.use(layouts);
 
 
@@ -77,10 +78,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('views/pages/profile', { id, name, email });
 });
 
-app.get('/profile', isLoggedIn, (req, res) => {
-  const { id, name, email } = req.user.get(); 
-  res.render('views/pages/profile', { id, name, email });
-});
+
 
 
 app.get('/articles', isLoggedIn, (req, res) => {

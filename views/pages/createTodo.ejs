@@ -1,0 +1,7 @@
+<form action="./" method="POST">
+    <% tasks.forEach(task => { %>
+        <label><%= task.title %></label>
+        <input type="checkbox" value="<%= task.id %>"> </input>
+    <% }) %> 
+    <button class="btn btn-primary" type="submit">Create Todo</button>
+</form>

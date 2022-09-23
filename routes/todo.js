@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 const task = require('../models/task');
+const { route } = require('./auth');
 
 router.get('/', isLoggedIn, (req, res) => {
     console.log('test')
@@ -32,6 +33,53 @@ router.get('/', isLoggedIn, (req, res) => {
 })
 
 
+router.get('/create', isLoggedIn, (req, res) => {
+  console.log('test')
+  db.task.findAll().then((tasks) => {
+
+    console.log('tasks: ' + tasks)
+
+    if(tasks && Array.isArray(tasks) && tasks.length > 0) {
+      res.render('pages/createTodo', {tasks})
+    } else {
+      throw new Error();
+    }
+  }).catch((error) => {
+    console.log('error: ' + error)
+  })
+})
+
+router.post('/task', isLoggedIn, (req, res) => {
+  const createdDate = new Date().toISOString();
+  db.task.create({
+    title: req.body.title,
+    createdAt: createdDate,
+    updatedAt: createdDate
+  })
+  .then(task => {
+    res.redirect('/todo');
+  })
+  .catch(error => {
+    console.log('post error: ' + error)
+  })
+
+})
+
+router.post('/', isLoggedIn, (req, res) => {
+  const createdDate = new Date().toISOString();
+  console.log(req.body)
+  db.task.create({
+    title: req.body.title,
+    createdAt: createdDate,
+    updatedAt: createdDate
+  })
+  .then(task => {
+    res.redirect('/todo');
+  })
+  .catch(error => {
+    console.log('post error: ' + error)
+  })
+})
 
 
 

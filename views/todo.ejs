@@ -1,7 +1,10 @@
 
 <h2>Todo page</h2>
 
-
+<form action="./todo/task" method="POST">
+  <input type="text" id="title" name="title" placeholder="input task" required>
+  <button type="submit" class="btn btn-primary">add task</button>
+</form>
 
 <% if(Array.isArray(todo.tasks) && todo.tasks.length > 0) { %>
 <% todo.tasks.forEach(function(task) { %>

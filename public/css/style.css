@@ -1,9 +1,91 @@
-nav ul li {
+/* nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
-}
+} */
+/*
+Forest Green - 015D67
+Kelly Green - 00ACB1
+Mint - 87E4D8
+Pistachio - CAF0C1
+fill color - EBF2F3
+*/
 
 h1 {
   color: chartreuse;
 }
+
+
+body {
+  font: 20px Montserrat, sans-serif;
+  line-height: 1.8;
+  color: #000000;
+}
+
+p {
+  font-size: 16px;
+}
+img {
+  filter: drop-shadow(0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5));
+}
+
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: #23A8A7;
+  text-shadow: 0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5);
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: greenyellow;
+  font-weight: 500;
+}
+
+.text__shadow {
+  text-shadow: 0.10rem 0.10rem 0.2rem rgba(0, 0, 0, 0.2);
+}
+
+.margin {
+  margin-bottom: 45px;
+}
+
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 5rem;
+  font-size: 12px;
+  letter-spacing: 5px;
+  border-bottom:1px solid #99BDC1; 
+  background-color: #EBF2F3;
+  text-transform: uppercase;
+  box-shadow: 0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+.nav-item  li a:hover {
+  color: #1abc9c;
+}
+
+.navbar-nav .active {
+  color: red;
+}
+
+.col__style {
+  margin: 2rem;
+  border: 1px solid red;
+  width: 30%;
+}$

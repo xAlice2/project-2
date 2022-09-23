@@ -1,0 +1,66 @@
+
+
+
+<nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+    <div class="container">
+        <a href="/" class="navbar-brand d-flex align-items-center text__shadow">
+            <img src="./assets/edtgraphics-128.png" alt="logo" width="60" height="54">
+            <div class="container">Flourish</div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse fkex-grow-1 text-right">
+            <ul class="navbar-nav ms-auto flex-nowrap">
+
+                <% if (!currentUser) {%>
+
+                    <li class="nav-item">
+                        <a class="nav-link text__shadow" href="/">Home</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text__shadow" href="/auth/signup">Signup</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text__shadow" href="/auth/login">Login</a></li>
+        
+                    <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link text__shadow" href="/">Home</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/logout">Logout</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+    <div class="container">
+        <a class="navbar-brand text__shadow" href="#">
+            <img src="./assets/edtgraphics-128.png" alt="logo" width="60" height="54">
+            Flourish
+        </a>
+    </div>
+
+        <ul class="nav">
+            <% if (!currentUser) {%>
+
+            <li class="nav-item">
+                <a class="nav-link text__shadow" href="/auth/signup">Signup</a></li>
+            <li class="nav-item">
+                <a class="nav-link text__shadow" href="/auth/login">Login</a></li>
+
+            <% } else { %>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/auth/logout">Logout</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">Profile</a></li>
+
+            <% } %>
+        </ul>
+</nav>
