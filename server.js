@@ -55,13 +55,15 @@ app.use((req, res, next) => { // next allows us to do whatever the next thing is
 });
 
 
-app.get('/', isLoggedIn, (req, res) => {
-  res.render('pages/main', { layout: './layouts/nonav-layout'});
-})
+
 
 app.get('/', (req, res) => {
   res.render('main/index', { layout: './layouts/nav-layout'});
 })
+
+// app.get('/', (req, res) => {
+//   res.render('main/index', { layout: './layouts/nonav-layout'});
+// })
 
 // access to all of our auth routes GET /auth/login, GET /auth/signup POST routes
 app.use('/auth', require('./routes/auth'));
