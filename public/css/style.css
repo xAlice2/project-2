@@ -54,6 +54,12 @@ a:active {
 .text__shadow {
   text-shadow: 0.10rem 0.10rem 0.2rem rgba(0, 0, 0, 0.2);
 }
+.logo__font {
+  font-family: 'Homemade Apple', cursive;
+  font-size:xx-large;
+  padding-top: 10px;
+  padding-left: 10px;
+}
 
 .margin {
   margin-bottom: 45px;
@@ -73,7 +79,6 @@ a:active {
   letter-spacing: 5px;
   border-bottom:1px solid #99BDC1; 
   background-color: #EBF2F3;
-  text-transform: uppercase;
   box-shadow: 0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.1);
 }
 .nav-item  li a:hover {
@@ -88,4 +93,4 @@ a:active {
   margin: 2rem;
   border: 1px solid red;
   width: 30%;
-}$
+}

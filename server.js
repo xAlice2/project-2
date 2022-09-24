@@ -9,19 +9,23 @@ const passport = require('./config/ppConfig');  //allows us to use passports in 
 const isLoggedIn = require('./middleware/isLoggedIn');
 const db = require('./models');
 const axios = require('axios');
+const path = require('path'); 
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('server.js console.log >>>>>', SECRET_SESSION);
 
 
 // MIDDLEWARE
-app.set('view engine', 'ejs');
-
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static('public'))
 app.use(layouts);
+
+app.set('layout', './layouts/nav-layout')
+app.set('layout', './layouts/nonav-layout')
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 
 
@@ -51,8 +55,12 @@ app.use((req, res, next) => { // next allows us to do whatever the next thing is
 });
 
 
+app.get('/', isLoggedIn, (req, res) => {
+  res.render('pages/main', { layout: './layouts/nonav-layout'});
+})
+
 app.get('/', (req, res) => {
-  res.render('main/index');
+  res.render('main/index', { layout: './layouts/nav-layout'});
 })
 
 // access to all of our auth routes GET /auth/login, GET /auth/signup POST routes
@@ -66,6 +74,8 @@ app.use('/todo', require('./routes/todo'));
  *  ISLOGGEDIN
  *      ./views/PAGES/
  *            contains pages only viewable after user is logged in
+ * Remember to add isLoggedIn once done testing:
+ * app.get('/main', isLoggedIn, (req, res) => {
  ===================================================================== */
 
 app.get('/main', isLoggedIn, (req, res) => {
@@ -73,19 +83,20 @@ app.get('/main', isLoggedIn, (req, res) => {
   res.render('views/pages/main', { id, name, email });
 });
 
-app.get('/profile', isLoggedIn, (req, res) => {
-  const { id, name, email } = req.user.get(); 
-  res.render('views/pages/profile', { id, name, email });
+app.get('/profile', (req, res) => {
+  // const { id, name, email } = req.user.get(); 
+  res.render('pages/profile', { id: 1, name: 'test1', email:'test2@test.com' });
 });
 
-
-
-
-app.get('/articles', isLoggedIn, (req, res) => {
-  res.render('views/pages/articles', {
-      articles: posts
-  })
+app.get('/signup', (req, res) => {
+  res.render('main/index', { layout: './layouts/nonav-layout'});
 })
+
+
+// app.get('/articles', isLoggedIn, (req, res) => {
+//   res.render('views/pages/articles', {
+//   })
+// })
 
 
 
