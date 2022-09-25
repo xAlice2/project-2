@@ -11,7 +11,7 @@
 
 
 
-<section class="ftco-section">
+<section class="ftco-section align-middle">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
@@ -22,28 +22,24 @@
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
                     <p class="mb-4 text-center h4 lightw">Have an account?</p>
-                    <form action="#" class="signin-form">
+
+                    <form action="/auth/login" class="signin-form" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username" required>
+                            <label for="auth-email"></label>
+                            <input id="auth-email" type="email" name="email" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input id="password-field" type="password" class="form-control" placeholder="Password" required>
-                            <span toggle="#password-field" class="fa fa-fw far-fa-eye field-icon toggle-password"></span>
+                            <label for="auth-password"></label>
+                            <input id="auth-password" type="password" name="password" class="form-control" placeholder="Password" required>
                         </div>
+
+                        <br>
                         <div class="form-group">
-                            <button type="submit" class="form-control btn btn-primary submit px-3 social">Sign In</button>
-                        </div>
-                        <div class="form-group d-md-flex">
-                            <div class="w-50">
-                                <label class="checkbox-wrap checkbox-primary">Remember Me
-                                    <input type="checkbox" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
+                            <button type="submit" class="form-control btn btn-primary submit text__shadow">Sign In</button>
                         </div>
                     </form>
 
-                    <p class="w-100 text-center">&mdash; Sign up for an account &mdash;</p>
+                    <p class="w-100 text-center my-5"><a class="nav-link lightw" href="/">&mdash; Sign up for an account &mdash; </a></p>
 
 
                 </div>
@@ -52,9 +48,9 @@
     </div>
 </section>
 
-<!-- <div class="container px-4 py-5 text-center">
+<!-- <div class="container px-4 py-5 text-center align-middle">
     <main class="form-signin w-100 m-auto">
-        <form>
+        <form action="/auth/login" class="signin-form" method="POST">
           <img class="mb-4" src="../assets/edtgraphics-128.png" alt="" width="72" height="57">
           <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
       
@@ -62,17 +58,29 @@
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
           </div>
+
           <div class="form-floating">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
+
+
+          <div class="form-floating">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+            <label for="floatingPassword">Password</label>
+            <span toggle="#password-field" class="fa fa-fw far-fa-eye field-icon toggle-password"></span>
+          </div>
+
+          
+
+
       
           <div class="checkbox mb-3">
             <label>
               <input type="checkbox" value="remember-me"> Remember me
             </label>
           </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+          <button class="form-control btn btn-lg btn-primary submit" type="submit">Sign in</button>
           <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
         </form>
       </main>

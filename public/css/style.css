@@ -82,6 +82,7 @@ img {
 .text__shadow {
   text-shadow: 0.10rem 0.10rem 0.2rem rgba(0, 0, 0, 0.5);
 }
+
 .logo__styling {
   font-family: 'Alex Brush', cursive;
   font-size: 5rem;
@@ -105,7 +106,10 @@ img {
   font-size: 5rem;
 }
 
-/* sign-in */
+/* 
+
+sign-in 
+============================================ */
 .login-wrap {
   position: relative;
   color: rgba(255, 255, 255, 0.9); }
@@ -130,36 +134,40 @@ img {
 
 .form-group {
   position: relative; 
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
-.field-icon {
+/* .field-icon {
   position: absolute;
   top: 50%;
   right: 15px;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.9); }
+  color: rgba(255, 255, 255, 0.9); } */
 
   .form-control {
     background: transparent;
     border: none;
     height: 50px;
     color: white !important;
-    border: 1px solid transparent;
-    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(196, 174, 115, 0.465);
+    background: rgba(255, 255, 255, 0.063);
     border-radius: 40px;
     padding-left: 20px;
     padding-right: 20px;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
-    transition: 0.3s; }
+    transition: 0.3s; 
+    
+  }
+
     @media (prefers-reduced-motion: reduce) {
       .form-control {
         -webkit-transition: none;
         -o-transition: none;
         transition: none; } }
+
     .form-control::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
       color: rgba(255, 255, 255, 0.8) !important; }
@@ -172,104 +180,75 @@ img {
     .form-control:-moz-placeholder {
       /* Firefox 18- */
       color: rgba(255, 255, 255, 0.8) !important; }
+
+      
     .form-control:hover, .form-control:focus {
       background: transparent;
       outline: none;
       -webkit-box-shadow: none;
       box-shadow: none;
-      border-color: rgba(255, 255, 255, 0.4); }
+      border-color: rgba(255, 255, 255, 0.4); 
+    }
+    
     .form-control:focus {
-      border-color: rgba(255, 255, 255, 0.4); }
-  
+      border-color: rgba(255, 255, 255, 0.4); 
+    }
+    input:placeholder-shown {
+      color: transparent;
+    }
   textarea.form-control {
     height: inherit !important; }
   
-  .checkbox-wrap {
-    display: block;
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; }
+
   
-  /* Hide the browser's default checkbox */
-  .checkbox-wrap input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0; }
   
-  /* Create a custom checkbox */
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0; }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
-    content: "\f0c8";
-    font-family: "FontAwesome";
-    position: absolute;
-    color: rgba(255, 255, 255, 0.1);
-    font-size: 20px;
-    margin-top: -4px;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s; }
-    @media (prefers-reduced-motion: reduce) {
-      .checkmark:after {
-        -webkit-transition: none;
-        -o-transition: none;
-        transition: none; } }
-  
-  /* Show the checkmark when checked */
-  .checkbox-wrap input:checked ~ .checkmark:after {
-    display: block;
-    content: "\f14a";
-    font-family: "FontAwesome";
-    color: rgba(0, 0, 0, 0.2); }
-  
-  /* Style the checkmark/indicator */
-  .checkbox-primary {
-    color: #fbceb5; }
-    .checkbox-primary input:checked ~ .checkmark:after {
-      color: #fbceb5; }
   
   .btn {
     cursor: pointer;
     border-radius: 40px;
     -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+    filter: drop-shadow(0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5)) !important;
     font-size: 15px;
-    text-transform: uppercase; }
+    text-transform: uppercase; 
+  }
+
     .btn:hover, .btn:active, .btn:focus {
-      outline: none; }
-    .btn.btn-primary {
-      background: #fbceb5 !important;
-      border: 1px solid #fbceb5 !important;
-      color: #000 !important; }
-      .btn.btn-primary:hover {
-        border: 1px solid #fbceb5;
-        background: transparent;
-        color: #fbceb5; }
-      .btn.btn-primary.btn-outline-primary {
+      outline: none; 
+    }
+
+    .btn-primary {
+      background: rgb(255, 204, 111) !important;
+      border: 2px solid #b88526 !important;
+      color: #000 !important; 
+    }
+
+      .btn-primary:hover {
+        border: 1px solid #130f0d !important;
+        background-color: rgb(0, 0, 0) !important;
+        color: rgb(221, 161, 50) !important;
+        font-weight: 800 !important;
+      }
+      /* .btn.btn-primary.btn-outline-primary {
         border: 1px solid #fbceb5;
         background: transparent;
         color: #fbceb5; }
         .btn.btn-primary.btn-outline-primary:hover {
-          border: 1px solid transparent;
-          background: #fbceb5;
-          color: #fff; }
+          border: 10px solid transparent;
+          background: wheat;
+          color: #000; } */
   
+.submit {
+  width: 18rem;
+  margin: 2rem;
+}
 
+.signin-form {
+  text-align: center;
+}
 
-
+label {
+  font-size:medium;
+}
 
 /* end signin */
 
@@ -299,15 +278,15 @@ img {
   padding-bottom: 15px; */
   border: 0;
   border-radius: 0;
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
   font-size: 12px;
   letter-spacing: 5px;
   /* border-bottom:1px solid #334038;  */
   /* background-color: #f1fbf3; */
   /* box-shadow: 0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.1); */
 }
-.nav-item  li a:hover {
-  color: #767a62;
+.nav-link  li a:hover {
+  color: #bacb60;
 }
 
 .navbar-nav .active {

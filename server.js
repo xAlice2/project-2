@@ -9,7 +9,8 @@ const passport = require('./config/ppConfig');  //allows us to use passports in 
 const isLoggedIn = require('./middleware/isLoggedIn');
 const db = require('./models');
 const axios = require('axios');
-const path = require('path'); 
+const path = require('path');
+const methodOverride = require('method-override') 
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('server.js console.log >>>>>', SECRET_SESSION);
@@ -17,9 +18,11 @@ console.log('server.js console.log >>>>>', SECRET_SESSION);
 
 // MIDDLEWARE
 app.use(require('morgan')('dev'));
+app.use(methodOverride('__method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
-app.use(express.static('public'))
+app.use(express.static('public'));
+
 app.use(layouts);
 
 app.set('layout', './layouts/nav-layout')
@@ -58,7 +61,7 @@ app.use((req, res, next) => { // next allows us to do whatever the next thing is
 
 
 app.get('/', (req, res) => {
-  res.render('main/index', { layout: './layouts/nav-layout'});
+  res.render('main/index');
 })
 
 // app.get('/', (req, res) => {
