@@ -17,7 +17,7 @@ router.get('/', isLoggedIn, (req, res) => {
     }).then((todo) => {
 
       console.log('todos: ' + todo)
-      res.render('todo', { todo: {
+      res.render('partials/todo', { todo: {
         notes: todo.notes,
         tasks: todo.taskDetails.map((taskDetail) =>{
             return { 
@@ -60,7 +60,9 @@ router.post('/task', isLoggedIn, (req, res) => {
     res.redirect('/todo');
   })
   .catch(error => {
-    console.log('post error: ' + error)
+    console.log('==========================post error ==========================')
+    console.log(error)
+    console.log('==========================post error ==========================')
   })
 
 })
@@ -77,7 +79,9 @@ router.post('/', isLoggedIn, (req, res) => {
     res.redirect('/todo');
   })
   .catch(error => {
-    console.log('post error: ' + error)
+    console.log('==========================post error ==========================')
+    console.log(error)
+    console.log('==========================post error ==========================')
   })
 })
 

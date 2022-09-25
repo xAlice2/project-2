@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-faded justify-content-end">
+    <div class="d-flex flex-row-reverse">
+        <button class="navbar-toggler text-uppercase text__shadow lightw" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar">
+            Menu <img src="../assets/dDara-logo-128.png" alt="logo" width="70" height="70" class="navbar-brand" > 
+        </button>
+
+        <div class="navbar-collapse collapse flex-grow-1" id="collapsingNavbar">
+            <ul class="navbar-nav ms-auto flex-nowrap text-uppercase text-end align-items-end">
+                <li class="nav-item">
+                    <a class="nav-link lightw" href="/">Home</a></li>
+
+                <% if (!currentUser) {%>
+                    <li class="nav-item">
+                        <a class="nav-link lightw" href="/auth/signup">Signup</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link lightw" href="/auth/login">Login</a></li>
+        
+                    <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link lightw" href="/profile">Profile</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link lightw" href="/auth/logout">Logout</a></li>
+
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+

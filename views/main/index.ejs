@@ -7,32 +7,29 @@
     }
 </style>
 
-<nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
-    <div class="container">
-        <a href="/" class="navbar-brand d-flex align-items-center">
-            <img src="../assets/dDara-logo-128.png" alt="logo" width="70" height="64" style="margin: 0.2rem">
+<nav class="navbar navbar-light navbar-expand-xl bg-faded justify-content-center">
+    <div class="container flex-xl-row flex-row-reverse">
+        <a href="/" class="navbar-brand d-none d-xl-block">
+            <img src="../assets/dDara-logo-128.png" alt="logo" width="70" height="64">
             <!-- <span class="align-baseline display-2 logo__styling lightgold">Flourish</span> -->
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler text-uppercase text__shadow lightw" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar">
+            Menu <img src="../assets/dDara-logo-128.png" alt="logo" width="70" height="70" class="navbar-brand" > 
         </button>
 
-        <div class="navbar-collapse collapse fkex-grow-1 text-right">
-            <ul class="navbar-nav ms-auto flex-nowrap text-uppercase">
+        <div class="navbar-collapse collapse flex-grow-1" id="collapsingNavbar">
+            <ul class="navbar-nav ms-auto flex-nowrap text-uppercase text-end align-items-end">
+                <li class="nav-item">
+                    <a class="nav-link lightw" href="/">Home</a></li>
 
                 <% if (!currentUser) {%>
-
-                    <li class="nav-item">
-                        <a class="nav-link lightw" href="/">Home</a></li>
                     <li class="nav-item">
                         <a class="nav-link lightw" href="/auth/signup">Signup</a></li>
                     <li class="nav-item">
                         <a class="nav-link lightw" href="/auth/login">Login</a></li>
         
                     <% } else { %>
-                    <li class="nav-item">
-                        <a class="nav-link lightw" href="/">Home</a></li>
                     <li class="nav-item">
                         <a class="nav-link lightw" href="/profile">Profile</a></li>
                     <li class="nav-item">
@@ -64,9 +61,9 @@
         </p><br>
 
             <p class="text-start lightw">To <span class="brand__emph" style="color:wheat">Inspire</span></p>
-            <p class="text-start lightw txt__indent"> To <span class="brand__emph" style="color:wheat">Kickstart </span> your day</p>
+            <p class="text-start lightw txt__indent"> and <span class="brand__emph" style="color:wheat">Kickstart </span> your day</p>
             
-            <p class="lightw">And help you become the person you most want to be. </p><br>
+            <p class="lightw">To help you become the person you most want to be. </p><br>
 
     </div>
 

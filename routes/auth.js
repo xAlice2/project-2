@@ -15,6 +15,7 @@ router.get("/login", (req, res) => {
   res.render("auth/login");
 });
 
+
 /**
  * The purpose of this route is to log the user out of the app. The main part of this route will be a built in function
  *  provided by request ( req ) that would do this: req.logout(). Then we will display a flash message to the user 
@@ -35,7 +36,7 @@ router.get('/logout', (req, res) => {
 
 // this route posts to /auth/login in login.ejs
 router.post('/login', passport.authenticate('local', {  //telling passport.auth to use the local authentication type
-  successRedirect: '/',
+  successRedirect: '/main',
   failureRedirect: '/auth/login',
   successFlash: 'Welcome back ...',
   failureFlash: 'Either email or password is incorrect' 
@@ -61,7 +62,7 @@ router.post('/signup', async (req, res) => {
         // if created, success and we will redirect back to / page
         console.log(`----- ${user.name} was created -----`);
         const successObject = {
-            successRedirect: '/',
+            successRedirect: '/main',
             successFlash: `Welcome ${user.name}. Account was created and logging in...`
         }
         // 

@@ -80,12 +80,23 @@ app.use('/todo', require('./routes/todo'));
  *      ./views/PAGES/
  *            contains pages only viewable after user is logged in
  * Remember to add isLoggedIn once done testing:
- * app.get('/main', isLoggedIn, (req, res) => {
- ===================================================================== */
+ *  ===================================================================== */
 
-app.get('/main', isLoggedIn, (req, res) => {
-  const { id, name, email } = req.user.get(); 
-  res.render('views/pages/main', { id, name, email });
+// app.get('/pagename', isLoggedIn, (req, res) => {
+//   const { id, name, email } = req.user.get(); 
+//   res.render('views/pages/main', { id, name, email });
+// });
+
+
+
+/**
+ *  ROUTES FOR TESTING
+ *                bypasses login 
+ * 
+ ===================================================================== */
+app.get('/main', (req, res) => {
+  // const { id, name, email } = req.user.get(); 
+  res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com' }, );
 });
 
 app.get('/profile', (req, res) => {
@@ -93,8 +104,18 @@ app.get('/profile', (req, res) => {
   res.render('pages/profile', { id: 1, name: 'test1', email:'test2@test.com' });
 });
 
+app.get('/todo', (req, res) => {
+  // const { id, name, email } = req.user.get(); 
+  res.render('partials/todo', { id: 1, name: 'test1', email:'test2@test.com' });
+});
+
+app.get('/createtodo', (req, res) => {
+  // const { id, name, email } = req.user.get(); 
+  res.render('pages/createTodo', { id: 1, name: 'test1', email:'test2@test.com' });
+});
+
 app.get('/signup', (req, res) => {
-  res.render('main/index', { layout: './layouts/nonav-layout'});
+  res.render('auth/signup', { layout: './layouts/nonav-layout'});
 })
 
 

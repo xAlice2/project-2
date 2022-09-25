@@ -8,7 +8,46 @@
         background-attachment: fixed;
     }
 </style>
-
+<!-- <div id="mainNavigation">
+    <nav role="navigation">
+      <div class="py-3 text-center border-bottom">
+        <img src="/static_files/images/logos/logo_3_white_2.png" alt="" class="invert">
+      </div>
+    </nav>
+    <div class="navbar-expand-md">
+      <div class="navbar-dark text-center my-2">
+        <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+        </button>
+      </div>
+      <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto ">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Book Hotel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Destinations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Policy</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Company
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Blog</a></li>
+              <li><a class="dropdown-item" href="#">About Us</a></li>
+              <li><a class="dropdown-item" href="#">Contact us</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> -->
 
 
 <section class="ftco-section align-middle">
@@ -21,25 +60,26 @@
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
-                    <p class="mb-4 text-center h4 lightw">Have an account?</p>
+                    <p class="text-center h4 lightw">Have an account?</p><br>
 
                     <form action="/auth/login" class="signin-form" method="POST">
-                        <div class="form-group">
-                            <label for="auth-email"></label>
-                            <input id="auth-email" type="email" name="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="auth-password"></label>
-                            <input id="auth-password" type="password" name="password" class="form-control" placeholder="Password" required>
+                        <div class="form-floating">
+                            
+                            <input id="floatingInput" type="email" name="email" class="form-control" placeholder="Email" required>
+                            <label for="floatingInput" class="lightw">Email Address</label>
+                        </div><br>
+                        <div class="form-floating">
+                            <input id="floatingPassword" type="password" name="password" class="form-control" placeholder="Password" required>
+                            <label for="floatingPassword" class="lightw">Password</label>
+                            
                         </div>
 
                         <br>
-                        <div class="form-group">
+
                             <button type="submit" class="form-control btn btn-primary submit text__shadow">Sign In</button>
-                        </div>
                     </form>
 
-                    <p class="w-100 text-center my-5"><a class="nav-link lightw" href="/">&mdash; Sign up for an account &mdash; </a></p>
+                    <p class="w-100 text-center my-5"><a class="nav-link lightw" href="/signup">&mdash; Sign up for an account &mdash; </a></p>
 
 
                 </div>
@@ -48,57 +88,5 @@
     </div>
 </section>
 
-<!-- <div class="container px-4 py-5 text-center align-middle">
-    <main class="form-signin w-100 m-auto">
-        <form action="/auth/login" class="signin-form" method="POST">
-          <img class="mb-4" src="../assets/edtgraphics-128.png" alt="" width="72" height="57">
-          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-      
-          <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-          </div>
 
-          <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-          </div>
-
-
-          <div class="form-floating">
-            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
-            <label for="floatingPassword">Password</label>
-            <span toggle="#password-field" class="fa fa-fw far-fa-eye field-icon toggle-password"></span>
-          </div>
-
-          
-
-
-      
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-          <button class="form-control btn btn-lg btn-primary submit" type="submit">Sign in</button>
-          <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
-        </form>
-      </main>
-</div> -->
-
-
-<!-- <div class="signin__container">
-    
-    <form action="/auth/login" method="POST">
-        <label for="auth-email">Email</label>
-        <input id="auth-email" type="email" name="email" required>
-    
-        <label for="auth-password">Password</label>
-        <input id="auth-password" type="password" name="password" required>
-    
-        <input type="submit" value="Log In">
-    </form>
-    
-</div> -->
-
-<!-- <%- include('../partials/footer') %>  -->
+<!-- <%- include('../partials/footer') %>   -->
