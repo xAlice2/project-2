@@ -10,7 +10,8 @@ const isLoggedIn = require('./middleware/isLoggedIn');
 const db = require('./models');
 const axios = require('axios');
 const path = require('path');
-const methodOverride = require('method-override') 
+const methodOverride = require('method-override'); 
+const todo = require('./models/todo');
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('server.js console.log >>>>>', SECRET_SESSION);
@@ -94,9 +95,32 @@ app.use('/todo', require('./routes/todo'));
  *                bypasses login 
  * 
  ===================================================================== */
-app.get('/main', (req, res) => {
+app.get('/main/:id', (req, res) => {
   // const { id, name, email } = req.user.get(); 
-  res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com' }, );
+  db.todo.findOne({
+    where: { userId: req.params.id },
+      order: [[ 'createdAt', 'DESC']],    //sorts by created  DESC
+    include: [ 
+      { model: db.taskDetails, include:[db.task] }, 
+      db.note 
+      ]  //passes the models from the association
+  }).then((todo) => {
+
+    console.log('todos: ' + JSON.stringify(todo))
+    res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com', todo: {
+      notes: todo.notes,
+      tasks: todo.taskDetails.map((taskDetail) =>{
+          return { 
+              complete: taskDetail.complete,
+              title: taskDetail.task.title,
+              id: taskDetail.id
+          }
+      })
+    } })
+  }).catch((error) => {
+    console.log('error: ' + error)
+  })
+  // res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com' }, );
 });
 
 app.get('/profile', (req, res) => {

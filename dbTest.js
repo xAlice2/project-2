@@ -128,7 +128,7 @@ async function createTodo() {
     }
     
 }
-createTodo()
+// createTodo()
 
 async function updateTodo() {
     try {
@@ -146,3 +146,22 @@ async function updateTodo() {
 }
 
 // updateTodo();
+
+
+async function createNote() {
+    try {
+        const cDate = new Date().toISOString();
+        const newNote = await db.note.create({
+            todoId: 1,
+            comment: 'third note',
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+
+        console.log('my new test item todo >>>', newNote);
+    } catch (error) {
+        console.log('new item was not created b/c of >>>', error);
+    }
+    
+}
+createNote()

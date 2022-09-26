@@ -6,6 +6,7 @@ const task = require('../models/task');
 const { route } = require('./auth');
 
 router.get('/', isLoggedIn, (req, res) => {
+    console.log('request body ------ ', req.body)
     console.log('test')
     db.todo.findOne({
       where: { userId: req.user.id },
@@ -16,7 +17,7 @@ router.get('/', isLoggedIn, (req, res) => {
         ]  //passes the models from the association
     }).then((todo) => {
 
-      console.log('todos: ' + todo)
+      console.log('todos: ' + JSON.stringify(todo))
       res.render('partials/todo', { todo: {
         notes: todo.notes,
         tasks: todo.taskDetails.map((taskDetail) =>{
@@ -54,28 +55,26 @@ router.post('/task', isLoggedIn, (req, res) => {
   db.task.create({
     title: req.body.title,
     createdAt: createdDate,
-    updatedAt: createdDate
+    updatedAt: createdDate,
+  }).then((task) => {
+
+    db.todo.findOne({
+      where: { userId: req.user.id }
+    }).then((todo) => {
+
+      db.taskDetails.create({
+        todoId: parseInt(todo.id),
+        taskId: parseInt(task.id),
+        complete: false,
+        createdAt: createdDate,
+        updatedAt: createdDate,
+      })
+
+    })
+
   })
   .then(task => {
-    res.redirect('/todo');
-  })
-  .catch(error => {
-    console.log('==========================post error ==========================')
-    console.log(error)
-    console.log('==========================post error ==========================')
-  })
-
-})
-
-router.post('/', isLoggedIn, (req, res) => {
-  const createdDate = new Date().toISOString();
-  console.log(req.body)
-  db.task.create({
-    title: req.body.title,
-    createdAt: createdDate,
-    updatedAt: createdDate
-  })
-  .then(task => {
+    console.log('======================= task ', JSON.stringify(task))
     res.redirect('/todo');
   })
   .catch(error => {

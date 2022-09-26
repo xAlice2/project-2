@@ -1,18 +1,16 @@
 
-<h2>Todo page</h2>
 
-<form action="./todo/task" method="POST">
-  <input type="text" id="title" name="title" placeholder="input task" required>
-  <button type="submit" class="btn btn-primary">add task</button>
-</form>
+<!-- <h2>Todo page</h2> -->
 
+
+<div class="container">
 <% if(Array.isArray(todo.tasks) && todo.tasks.length > 0) { %>
 <% todo.tasks.forEach(function(task) { %>
     <div class="well">
       <h2>
         <form action="./todo/<%= task.id %>?_method=PUT" method="POST">
-          <span>title<%= task.title %></span>
-          <input type="checkbox" id="vehicle1" name="complete" value=<%= task.complete %>>
+          <input type="checkbox" id="taskdone" name="complete" value=<%= task.complete %>>
+          <span>task: <%= task.title %></span>
         </form>
       </h2>
 
@@ -38,3 +36,9 @@
       No Notes...
     </div>
 <% } %>
+
+<form action="./todo/task" method="POST">
+  <input type="text" id="title" name="title" placeholder="input task" required>
+  <button type="submit" class="btn btn-primary">add task</button>
+</form>
+</div>

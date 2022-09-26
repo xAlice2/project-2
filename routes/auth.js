@@ -36,7 +36,7 @@ router.get('/logout', (req, res) => {
 
 // this route posts to /auth/login in login.ejs
 router.post('/login', passport.authenticate('local', {  //telling passport.auth to use the local authentication type
-  successRedirect: '/main',
+  successRedirect: '/main',         // pass :id to main
   failureRedirect: '/auth/login',
   successFlash: 'Welcome back ...',
   failureFlash: 'Either email or password is incorrect' 
