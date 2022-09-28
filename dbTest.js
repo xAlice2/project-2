@@ -92,7 +92,7 @@ async function createTodo() {
     try {
         const cDate = new Date().toISOString();
         const newTodo = await db.todo.create({
-            userId: 5,
+            userId: 2,
             createdAt: cDate,
             updatedAt: cDate
         });
