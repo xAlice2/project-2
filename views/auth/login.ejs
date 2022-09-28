@@ -63,22 +63,20 @@
                     <p class="text-center h4 lightw">Have an account?</p><br>
 
                     <form action="/auth/login" class="signin-form" method="POST">
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                             
                             <input id="floatingInput" type="email" name="email" class="form-control" placeholder="Email" required>
                             <label for="floatingInput" class="lightw">Email Address</label>
-                        </div><br>
-                        <div class="form-floating">
+                        </div>
+                        <div class="form-floating mb-3">
                             <input id="floatingPassword" type="password" name="password" class="form-control" placeholder="Password" required>
                             <label for="floatingPassword" class="lightw">Password</label>
                         </div>
 
-                        <br>
-
                             <button type="submit" class="form-control btn btn-primary submit text__shadow">Sign In</button>
                     </form>
 
-                    <p class="w-100 text-center my-5"><a class="nav-link lightw" href="/signup">&mdash; Sign up for an account &mdash; </a></p>
+                    <p class="w-100 text-center my-5"><a class="nav-link lightw hover__gold" href="/signup">&mdash; Sign up for an account &mdash; </a></p>
 
 
                 </div>
@@ -88,4 +86,4 @@
 </section>
 
 
-<!-- <%- include('../partials/footer') %>   -->
+<%- include('../partials/footer') %>  
