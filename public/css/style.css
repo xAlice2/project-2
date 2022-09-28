@@ -56,7 +56,9 @@ body {
   line-height: 1.8;
   color:wheat;
   text-shadow: 0.10rem 0.10rem 0.2rem rgba(0, 0, 0, 0.5);
-
+  height: 100%;
+  width: 100%;
+  background-color: black;
 }
 
 .bg-teal {
