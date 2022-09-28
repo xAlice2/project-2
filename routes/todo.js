@@ -84,7 +84,55 @@ router.post('/task', isLoggedIn, (req, res) => {
   })
 })
 
+  // PUT request to update taskDetails entry to completed or uncompleted
+  router.post('/task/:id', isLoggedIn, (req, res) => {
+    const { complete } = req.body; // retrieve checkbox input type with name - "complete" line 12 in todo.ejs
+    const { id } = req.params; // retrieve task id from query param
 
+    console.log(" ---------------------------------------------");
+    console.log(" body ", JSON.stringify(req.body));
+    console.log(" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    const updateDate = new Date().toISOString();
+
+    // find our corresponding todo data attached to our user
+    // so we can use the todo ID value to update our taskDetails entry
+    db.todo.findOne({
+      where: { userId: req.user.id },
+      order: [[ 'createdAt', 'DESC' ]]
+    }).then((todo) => {
+      /*
+        * after getting our todo data result, we can now use that todoId to ensure we update the correct taskDetails entry
+        * https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#simple-update-queries
+        *
+        */
+      console.log(" todo ", JSON.stringify(todo));
+      console.log(" id ", parseInt(id));
+      console.log(" complete ", complete);
+      db.taskDetails.update({
+        // don't get confused by the same value being used here, this is the value from line 89 - const { complete }
+        // we update this field here with the opposite boolean we receive from the 'complete' name
+        complete: complete,
+        // also will need to update the date for when the task was checked/unchecked off
+        updatedAt: updateDate,
+      }, {
+        // we want to make sure we mark the correct task completed, that was why we grabbed the todoId earlier
+        // refer to this documentation
+        // https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#applying-where-clauses
+        where: {
+          // todoId: todo.id,
+          id: parseInt(id), // id is the task ID in this context
+        }
+      })
+    })
+    .then(taskDetail => {
+      res.redirect('/main')
+    })
+    .catch(error => {
+      console.log('==========================post error ==========================')
+      console.log(error)
+      console.log('==========================post error ==========================')
+    })
+  })
 
 
 module.exports = router;

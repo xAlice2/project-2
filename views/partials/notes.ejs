@@ -1,0 +1,11 @@
+<% if(Array.isArray(todo.notes) && todo.notes.length > 0) { %>
+    <% todo.notes.forEach(function(note) { %>
+      <div class="well">
+          <p class="task__style"><%= note.comment %> </p>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <div class="panel-body">
+      No Notes...
+    </div>
+<% } %>

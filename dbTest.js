@@ -92,18 +92,33 @@ async function createTodo() {
     try {
         const cDate = new Date().toISOString();
         const newTodo = await db.todo.create({
-            userId: 1,
+            userId: 5,
             createdAt: cDate,
             updatedAt: cDate
         });
 
         const newTask1 = await db.task.create({
-            title: "test walk cat 1",
+            title: "put on pants for team meeting",
             createdAt: cDate,
             updatedAt: cDate
         });
         const newTask2 = await db.task.create({
-            title: "test walk cat 2",
+            title: "do not stand up during team meeting",
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+        const newTask4 = await db.task.create({
+            title: "water pants",
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+        const newTask5 = await db.task.create({
+            title: "buy cat food",
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+        const newTask6 = await db.task.create({
+            title: "check spelling",
             createdAt: cDate,
             updatedAt: cDate
         });
@@ -122,13 +137,35 @@ async function createTodo() {
             updatedAt: cDate
         });
 
+        const newTaskDetails4 = await db.taskDetails.create({
+            todoId: newTodo.id,
+            taskId: newTask4.id,
+            complete: false,
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+        const newTaskDetails5 = await db.taskDetails.create({
+            todoId: newTodo.id,
+            taskId: newTask5.id,
+            complete: false,
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+        const newTaskDetails6 = await db.taskDetails.create({
+            todoId: newTodo.id,
+            taskId: newTask6.id,
+            complete: false,
+            createdAt: cDate,
+            updatedAt: cDate
+        });
+
         console.log('my new test item todo >>>', newTodo);
     } catch (error) {
         console.log('new item was not created b/c of >>>', error);
     }
     
 }
-// createTodo()
+createTodo()
 
 async function updateTodo() {
     try {
@@ -164,4 +201,4 @@ async function createNote() {
     }
     
 }
-createNote()
+// createNote()

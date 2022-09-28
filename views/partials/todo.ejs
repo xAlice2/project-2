@@ -3,42 +3,41 @@
 <!-- <h2>Todo page</h2> -->
 
 
-<div class="container">
-<% if(Array.isArray(todo.tasks) && todo.tasks.length > 0) { %>
-<% todo.tasks.forEach(function(task) { %>
-    <div class="well">
-      <h2>
-        <form action="./todo/<%= task.id %>?_method=PUT" method="POST">
-          <input type="checkbox" id="taskdone" name="complete" value=<%= task.complete %>>
-          <span>task: <%= task.title %></span>
-        </form>
-      </h2>
+<div class="container containerbg px-4">
+    <% if(Array.isArray(todo.tasks) && todo.tasks.length > 0) { %>
+    <% todo.tasks.forEach(function(task) { %>
+        <div class="well">
+          <h2>
+            <form action="./todo/task/<%= task.id %>" method="POST">
+              <input checked=<%= task.complete %> type="checkbox" id="complete" name="complete" onChange="this.form.submit()" value="<%= task.title %>">
+              <span class="task__style"> <%= task.title %></span>
+            </form>
+          </h2>
 
-    </div>
-  <% }) %>
-  <% } else { %>
-    <div class="panel-body">
-      No Tasks...
-    </div>
-<% } %>
+        </div>
+      <% }) %>
+      <% } else { %>
+        <div class="panel-body">
+          Yay! Nothing to do!
+        </div>
+    <% } %>
 
-  <% if(Array.isArray(todo.notes) && todo.notes.length > 0) { %>
-    <% todo.notes.forEach(function(note) { %>
-      <div class="well">
-        <h2>
-          <p><%= note.comment %> </p>
-        </h2>
 
+    
+    <!-- <form action="./todo/task" method="POST" class="form-control">
+      <input type="text" id="title" name="title" placeholder="input task" required>
+      <button type="submit" class="btn btn-primary task__btn">add task</button>
+    </form> -->
+
+    <form action="./todo/task" method="POST">
+
+      <div class="form-floating input-group d-flex justify-content-center align-items-center py-3">
+        <input id="floatingInput" type="title" name="title" class="form-control taskform__style" placeholder="Enter task .." required>
+        <label for="floatingInput" class="lightw">Enter task</label>
+        <button type="submit" class="btn btn-primary task__btn">add task</button>
       </div>
-    <% }) %>
-  <% } else { %>
-    <div class="panel-body">
-      No Notes...
-    </div>
-<% } %>
 
-<form action="./todo/task" method="POST">
-  <input type="text" id="title" name="title" placeholder="input task" required>
-  <button type="submit" class="btn btn-primary">add task</button>
-</form>
+    </form>
+
+
 </div>

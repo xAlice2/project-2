@@ -12,6 +12,7 @@ const axios = require('axios');
 const path = require('path');
 const methodOverride = require('method-override'); 
 const todo = require('./models/todo');
+const bodyparser = require('body-parser');
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('server.js console.log >>>>>', SECRET_SESSION);
@@ -20,7 +21,8 @@ console.log('server.js console.log >>>>>', SECRET_SESSION);
 // MIDDLEWARE
 app.use(require('morgan')('dev'));
 app.use(methodOverride('__method'));
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.json());
 app.use(express.static(__dirname + '/public'));
 app.use(express.static('public'));
 
@@ -88,17 +90,9 @@ app.use('/todo', require('./routes/todo'));
 //   res.render('views/pages/main', { id, name, email });
 // });
 
-
-
-/**
- *  ROUTES FOR TESTING
- *                bypasses login 
- * 
- ===================================================================== */
-app.get('/main/:id', (req, res) => {
-  // const { id, name, email } = req.user.get(); 
+app.get('/main', isLoggedIn, (req, res) => {
   db.todo.findOne({
-    where: { userId: req.params.id },
+    where: { userId: req.user.id },
       order: [[ 'createdAt', 'DESC']],    //sorts by created  DESC
     include: [ 
       { model: db.taskDetails, include:[db.task] }, 
@@ -120,22 +114,49 @@ app.get('/main/:id', (req, res) => {
   }).catch((error) => {
     console.log('error: ' + error)
   })
-  // res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com' }, );
 });
 
-app.get('/profile', (req, res) => {
-  // const { id, name, email } = req.user.get(); 
-  res.render('pages/profile', { id: 1, name: 'test1', email:'test2@test.com' });
+
+ app.get('/main/:id', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  db.todo.findOne({
+    where: { userId: req.params.id },  
+    include: [ 
+      { model: db.taskDetails, include:[db.task] }, 
+      db.note 
+      ]  //passes the models from the association
+  }).then((todo) => {
+
+    console.log('todos: ' + JSON.stringify(todo))
+    res.render('pages/main', { id, name, email, todo: {
+      notes: todo.notes,
+      tasks: todo.taskDetails.map((taskDetail) =>{
+          return { 
+              complete: taskDetail.complete,
+              title: taskDetail.task.title,
+              id: taskDetail.id
+          }
+      })
+    } })
+  }).catch((error) => {
+    console.log('error: ' + error)
+  })
+  res.render('pages/main', { id, name, email }, );
 });
 
-app.get('/todo', (req, res) => {
-  // const { id, name, email } = req.user.get(); 
-  res.render('partials/todo', { id: 1, name: 'test1', email:'test2@test.com' });
+app.get('/profile', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  res.render('pages/profile', { id, name, email });
 });
 
-app.get('/createtodo', (req, res) => {
-  // const { id, name, email } = req.user.get(); 
-  res.render('pages/createTodo', { id: 1, name: 'test1', email:'test2@test.com' });
+app.get('/todo', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  res.render('partials/todo', { id, name, email });
+});
+
+app.get('/createtodo', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  res.render('pages/createTodo', { id, name, email });
 });
 
 app.get('/signup', (req, res) => {
@@ -143,11 +164,109 @@ app.get('/signup', (req, res) => {
 })
 
 
-// app.get('/articles', isLoggedIn, (req, res) => {
-//   res.render('views/pages/articles', {
+app.get('/pomodoro', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  res.render('partials/pomodoro', { id, name, email });
+});
+
+
+
+
+/**
+ *  Bypass Login (for testing purposes)
+ * 
+ ===================================================================== */
+//  app.get('/main', isLoggedIn, (req, res) => {
+//   // const { id, name, email } = req.user.get(); 
+//   db.todo.findOne({
+//     where: { userId: req.user.id },
+//       order: [[ 'createdAt', 'DESC']],    //sorts by created  DESC
+//     include: [ 
+//       { model: db.taskDetails, include:[db.task] }, 
+//       db.note 
+//       ]  //passes the models from the association
+//   }).then((todo) => {
+
+//     console.log('todos: ' + JSON.stringify(todo))
+//     res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com', todo: {
+//       notes: todo.notes,
+//       tasks: todo.taskDetails.map((taskDetail) =>{
+//           return { 
+//               complete: taskDetail.complete,
+//               title: taskDetail.task.title,
+//               id: taskDetail.id
+//           }
+//       })
+//     } })
+//   }).catch((error) => {
+//     console.log('error: ' + error)
 //   })
+//   // res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com' }, );
+// });
+
+
+//  app.get('/main/:id', (req, res) => {
+//   // const { id, name, email } = req.user.get(); 
+//   db.todo.findOne({
+//     where: { userId: req.params.id },  
+//     include: [ 
+//       { model: db.taskDetails, include:[db.task] }, 
+//       db.note 
+//       ]  //passes the models from the association
+//   }).then((todo) => {
+
+//     console.log('todos: ' + JSON.stringify(todo))
+//     res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com', todo: {
+//       notes: todo.notes,
+//       tasks: todo.taskDetails.map((taskDetail) =>{
+//           return { 
+//               complete: taskDetail.complete,
+//               title: taskDetail.task.title,
+//               id: taskDetail.id
+//           }
+//       })
+//     } })
+//   }).catch((error) => {
+//     console.log('error: ' + error)
+//   })
+//   // res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com' }, );
+// });
+
+// app.get('/profile', (req, res) => {
+//   // const { id, name, email } = req.user.get(); 
+//   res.render('pages/profile', { id: 1, name: 'test1', email:'test2@test.com' });
+// });
+
+// app.get('/todo', (req, res) => {
+//   // const { id, name, email } = req.user.get(); 
+//   res.render('partials/todo', { id: 1, name: 'test1', email:'test2@test.com' });
+// });
+
+// app.get('/createtodo', (req, res) => {
+//   // const { id, name, email } = req.user.get(); 
+//   res.render('pages/createTodo', { id: 1, name: 'test1', email:'test2@test.com' });
+// });
+
+// app.get('/signup', (req, res) => {
+//   res.render('auth/signup', { layout: './layouts/nonav-layout'});
 // })
 
+
+// app.get('/pomodoro', (req, res) => {
+//   // const { id, name, email } = req.user.get(); 
+//   res.render('partials/pomodoro', { id: 1, name: 'test1', email:'test2@test.com' });
+// });
+
+
+
+/**
+ *  404 
+ * 
+ ===================================================================== */
+
+app.use((req, res) => {
+  res.status(404).render('main/404', { layout: './layouts/nav-layout'});
+})
 
 
 

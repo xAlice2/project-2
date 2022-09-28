@@ -5,12 +5,12 @@
 
 <% if (alerts.error) { %>
     <% alerts.error.forEach(msg => { %>
-        <div class="alert alert-danger"><%= msg %></div>
+        <div class="alert alert__custom"><%= msg %></div>
    <% }) %>
 <% } %>
 
 <% if (alerts.success) { %>
     <% alerts.success.forEach(msg => { %>
-        <div class="alert alert-success"><%= msg %></div>
+        <div class="alert alert-success alert__custom lightw"><%= msg %></div>
    <% }) %>
 <% } %>

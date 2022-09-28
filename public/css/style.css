@@ -250,6 +250,7 @@ label {
   text-indent: 11rem;
 }
 
+
 .defn__style {
   width: 50rem;
   text-align: left;
@@ -288,16 +289,185 @@ label {
 
 }
 
-.nav-link  li a:hover {
-  color: #bacb60;
+
+.logo__hover:hover {
+  /* box-shadow: 0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5); */
+  -webkit-filter: drop-shadow(0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5));
 }
 
-.navbar-nav .active {
+/* .nav-link  li a:hover {
+  color: #bacb60;
+} */
+
+/* .navbar-nav .active {
   color: red;
-}
+} */
 
 .col__style {
   margin: 2rem;
   border: 1px solid red;
   width: 30%;
+}
+
+
+/*
+User main styling
+================================ */
+
+.task__style {
+  font-size: 1.5rem;
+}
+
+.task__btn {
+  border-radius: 0 40px 40px 0 !important;
+  
+}
+
+.taskform__style {
+  border-radius: 40px 0 0 40px !important;
+  /* max-width: 10rem; */
+  max-height: 2.5rem;
+}
+
+/*
+
+Alert styling
+================================ */
+
+.alert__custom {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #b88526 !important;
+  border-radius: 0;
+  box-shadow: 0.10rem 0.10rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/*
+
+Pomoapp styling
+================================ */
+
+/* body {
+	background-color: rgb(51, 51, 51);
+	color: white;
+	font-family: Helvetica Neue, Arial, sans;
+	font-weight: 200;
+	text-align: center;
+} */
+
+h1 {
+	font-weight: 200;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	color: white;
+	font-size: 1.3em;
+}
+
+button:disabled {
+	color: rgba(128,128,128,32);
+}
+
+.controls-block {
+	display: inline-block;
+	margin: 0 10px 0 10px;
+}
+
+/*.controls-block > * {
+	border: 1px dotted orange;
+}*/
+
+.controls-label {
+	font-size: .8em;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.control-value {
+	font-size: 2em;
+}
+
+.controls-block > button {
+	background-color: transparent;
+	color: white;
+	font-size: 1.5em;
+	min-width: 32px;
+	vertical-align: bottom;
+}
+
+#clock-container {
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid;
+	border-color: rgb(154, 202, 39);
+	border-radius: 50%;
+	width: 300px;
+	height: 300px;
+	display: table;
+	overflow: hidden;
+	position: relative;
+}
+
+#clock-content {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#clock-counter {
+	font-size: 5em;
+	text-align: center;
+	margin: auto;
+	-webkit-font-feature-settings: 'tnum';
+	-moz-font-feature-settings: 'tnum';
+	-ms-font-feature-settings: 'tnum';
+}
+
+#clock-container > button {
+	border: none;
+	background-color: transparent;
+	color: white;
+	font-size: 1em;
+	min-width: 95px;
+}
+
+#clock-label {
+	margin-top: -20px;
+	font-size: 2em;
+}
+
+#outer {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #ccc;
+    overflow: hidden;
+    
+    position: relative;
+    
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#inner, #inner div {
+    z-index: -1;
+    width: 100%;
+    overflow: hidden;
+    left: -1px;
+    position: absolute;
+}
+
+#inner {
+    border-top-width: 0;
+    background-color: rgb(154, 202, 39);
+
+    bottom: 0;
+    height: 0%;
 }
