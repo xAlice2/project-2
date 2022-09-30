@@ -2,8 +2,8 @@
 
 <!-- <h2>Todo page</h2> -->
 
-
-<div class="container containerbg px-4">
+<form>
+  <div class="container containerbg px-4">
     <% if(Array.isArray(todo.tasks) && todo.tasks.length > 0) { %>
     <% todo.tasks.forEach(function(task) { %>
         <div class="well">
@@ -21,6 +21,8 @@
           Yay! Nothing to do!
         </div>
     <% } %>
+</form>
+
 
 
     
