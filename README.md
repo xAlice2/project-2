@@ -26,7 +26,7 @@ https://flourish-helenaw.herokuapp.com/
 ## Entity Relationship Diagram
 ![tables erd](https://user-images.githubusercontent.com/86327883/193395538-d357cd1e-35bf-42cd-95ef-50d995c4ec06.png)
 
-## Idea / Wireframe
+## Planning
 I'm not a very visual person, I require being able to visually see things together in order to implement the code for it. Everytime I hit a backend roadblock, I came back to chip away at this mountain. You can see the wireframe evolve as I try to visualize things I'm looking to do while I was coding the front end.
 
 ### Idea
