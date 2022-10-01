@@ -27,10 +27,14 @@ https://flourish-helenaw.herokuapp.com/
 ![tables erd](https://user-images.githubusercontent.com/86327883/193395538-d357cd1e-35bf-42cd-95ef-50d995c4ec06.png)
 
 ## Idea / Wireframe
+I'm not a very visual person, I require being able to visually see things together in order to implement the code for it. Everytime I hit a backend roadblock, I came back to chip away at this mountain. You can see the wireframe evolve as I try to visualize things I'm looking to do while I was coding the front end.
+
+### Idea
 * To get away from the idea of 'work' by removing as many instances of words relating to it as possible
 * Visually pleasing theme that is also generally gender neutral
 * User interactive - in order to add tasks to the todo list or shortcuts
 
+### Wireframe
 ![wireframe v1](https://user-images.githubusercontent.com/86327883/193395641-c14fd4a2-f0ae-4ea9-9af7-fee56ba01ce4.png)
 
 ![wireframe v2](https://user-images.githubusercontent.com/86327883/193395688-7db7055b-f56e-4f15-8834-f95281d9feda.png)
