@@ -1,5 +1,5 @@
 $('document').ready(function() {
-
+	console.log(" executing ");
 	//Set default timer lengths (in seconds)
 	var breakTime = 300;
 	var sessionTime = 1500;
@@ -68,7 +68,7 @@ $('document').ready(function() {
 
 	//Click Handlers for changing the break and session lengths.
 	//If the clock is running, don't allow the times to be changed.
-	$('#break-minus').on('click', function () {
+	$('#break-minus').click(function () {
 		//If the clock is running, don't allow the times to be changed.
 		if (clockRunning) {return;}
 
@@ -85,7 +85,7 @@ $('document').ready(function() {
 		}
 	});
 
-	$('#break-plus').on('click', function () {
+	$('#break-plus').click(function () {
 		if (clockRunning) {return;}
 
 		if (clockType === 'break') {
@@ -99,7 +99,7 @@ $('document').ready(function() {
 		}
 	});
 
-	$('#session-minus').on('click', function () {
+	$('#session-minus').click(function () {
 		if (clockRunning) {return;}
 
 		if (sessionTime > 0) {
@@ -108,7 +108,7 @@ $('document').ready(function() {
 		}
 	});
 
-	$('#session-plus').on('click', function () {
+	$('#session-plus').click(function () {
 		if (clockRunning) {return;}
 		sessionTime += 60;
 		resetApp();
@@ -140,7 +140,7 @@ $('document').ready(function() {
 	};
 
 	//Start-Stop Click Handler
-	$('#clock-button').on('click', function() {
+	$('#clock-button').click(function() {
 		if (clockRunning) {
 			clockRunning = false;
 			window.clearInterval(countdownID);
@@ -155,7 +155,7 @@ $('document').ready(function() {
 	});
 
 	//Reset Click Handler
-	$('#reset-button').on('click', function() {
+	$('#reset-button').click(function() {
 		resetApp();
 	});
 
