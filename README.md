@@ -27,7 +27,7 @@ https://flourish-helenaw.herokuapp.com/
 ![tables erd](https://user-images.githubusercontent.com/86327883/193395538-d357cd1e-35bf-42cd-95ef-50d995c4ec06.png)
 
 ## Planning
-I'm not a very visual person, I require being able to visually see things together in order to implement the code for it. Everytime I hit a backend roadblock, I came back to chip away at this mountain. You can see the wireframe evolve as I try to visualize things I'm looking to do while I was coding the front end.
+I'm not a very visual person, I require being able to visually see things together in order to implement the code for it. Everytime I hit a backend roadblock, I came back to chip away at this mountain. You can see the wireframe evolve (in figma) as I try to visualize things I'm looking to do while I was coding the front end. In this phase, I learnt how 
 
 ### Idea
 * To get away from the idea of 'work' by removing as many instances of words relating to it as possible
@@ -53,6 +53,7 @@ I'm not a very visual person, I require being able to visually see things togeth
     - [ ] Ability to pick different playlists or songs in spotify
     - [ ] Calendar implementation
     - [ ] Actual Motivation station with an api for jokes
+    - [ ] Tidy up assets
    
 - [x] ReadMe
 
