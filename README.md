@@ -2,7 +2,7 @@
 
 Flourish is an productivity app designed to have everything a person could need to start their day and do their work in one place.
 
-## Live Preview
+### Live Preview
 https://flourish-helenaw.herokuapp.com/
 
 ## Features
