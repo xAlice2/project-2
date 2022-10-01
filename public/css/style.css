@@ -28,34 +28,32 @@ warm brown - 71442B
 }
 
 .lightw {
-  color:wheat;
+  color: wheat;
   /* color: #F1FBF3 */
 }
 
 .lightgold {
-    color:rgb(255, 204, 111);
-    /* color: #F1FBF3 */
+  color: rgb(255, 204, 111);
+  /* color: #F1FBF3 */
 }
 
 .warmlg {
-  color: #F1FBF3;
+  color: #f1fbf3;
 }
 
 .daccentg {
-  color: #767A62;
+  color: #767a62;
 }
 
 .maing {
   color: hsl(123, 24%, 65%);
 }
 
-
-
 body {
   font: 1.5rem Montserrat, sans-serif;
   line-height: 1.8;
-  color:wheat;
-  text-shadow: 0.10rem 0.10rem 0.2rem rgba(0, 0, 0, 0.5);
+  color: wheat;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   background-color: black;
@@ -74,10 +72,9 @@ img {
   filter: drop-shadow(0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5));
 }
 
-
 .containerbg {
-  background-color: rgba(0, 0, 0, 0.4);
-  
+  background-color: rgba(0, 0, 0, 0.5);
+
   /* padding: 1rem; */
 }
 .rounded__corners {
@@ -86,18 +83,18 @@ img {
 
 /* font styling */
 .text__shadow {
-  text-shadow: 0.10rem 0.10rem 0.2rem rgba(0, 0, 0, 0.5);
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
 }
 
 .logo__styling {
-  font-family: 'Alex Brush', cursive;
+  font-family: "Alex Brush", cursive;
   font-size: 5rem;
   margin-left: 1rem;
   margin-top: 1rem;
 }
 
 .logo__font {
-  font-family: 'Alex Brush', cursive;
+  font-family: "Alex Brush", cursive;
   font-size: 7rem;
 }
 
@@ -109,7 +106,7 @@ img {
 }
 
 .brand__emph {
-  font-family: 'Alex Brush', cursive;
+  font-family: "Alex Brush", cursive;
   font-size: 3em;
 }
 
@@ -119,124 +116,111 @@ sign-in
 ============================================ */
 .login-wrap {
   position: relative;
-  color: rgba(255, 255, 255, 0.9); }
-  .login-wrap h3 {
-    font-weight: 300;
-    color: #fff; }
+  color: rgba(255, 255, 255, 0.9);
+}
+.login-wrap h3 {
+  font-weight: 300;
+  color: #fff;
+}
 
-    .login-wrap .social {
-    width: 100%; }
+.login-wrap .social {
+  width: 100%;
+}
 
-    .login-wrap .social a {
-      width: 100%;
-      display: block;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      color: #000;
-      background: #fff; }
-      
-    .login-wrap .social a:hover {
-      background: #000;
-      color: #fff;
-      border-color: #000; }
+.login-wrap .social a {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #000;
+  background: #fff;
+}
+
+.login-wrap .social a:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
 
 .form-group {
-  position: relative; 
+  position: relative;
   /* margin: 1rem; */
 }
 
-/* .field-icon {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.9); } */
+.form-control {
+  background: transparent;
+  border: none;
+  height: 50px;
+  color: white !important;
+  border: 1px solid rgba(196, 174, 115, 0.465);
+  background: rgba(255, 255, 255, 0.063);
+  border-radius: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
 
+@media (prefers-reduced-motion: reduce) {
   .form-control {
-    background: transparent;
-    border: none;
-    height: 50px;
-    color: white !important;
-    border: 1px solid rgba(196, 174, 115, 0.465);
-    background: rgba(255, 255, 255, 0.063);
-    border-radius: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s; 
-    
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
   }
+}
 
-    @media (prefers-reduced-motion: reduce) {
-      .form-control {
-        -webkit-transition: none;
-        -o-transition: none;
-        transition: none; } }
+.form-control:hover,
+.form-control:focus {
+  background: transparent;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.4);
+}
 
+.form-control:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: transparent !important;
+}
+textarea.form-control {
+  height: inherit !important;
+}
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
 
-      
-    .form-control:hover, .form-control:focus {
-      background: transparent;
-      outline: none;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      border-color: rgba(255, 255, 255, 0.4); 
-    }
-    
-    .form-control:focus {
-      border-color: rgba(255, 255, 255, 0.4); 
-    }
-    ::-webkit-input-placeholder { /* WebKit browsers */
-      color: transparent !important;
-  }
-  textarea.form-control {
-    height: inherit !important; 
-  }
-  
-  input:-webkit-autofill,
-  input:-webkit-autofill:focus {
-    transition: background-color 600000s 0s, color 600000s 0s;
-  }
-  
-  
-  
-  .btn {
-    cursor: pointer;
-    border-radius: 40px;
+.btn {
+  cursor: pointer;
+  border-radius: 40px;
+  filter: drop-shadow(0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5)) !important;
+  font-size: 15px;
+  text-transform: uppercase;
+}
 
-    filter: drop-shadow(0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5)) !important;
-    font-size: 15px;
-    text-transform: uppercase; 
-  }
+.btn:hover,
+.btn:active,
+.btn:focus {
+  outline: none;
+}
 
-    .btn:hover, .btn:active, .btn:focus {
-      outline: none; 
-    }
+.btn-primary {
+  background: rgb(255, 204, 111) !important;
+  border: 2px solid #b88526 !important;
+  color: #000 !important;
+}
 
-    .btn-primary {
-      background: rgb(255, 204, 111) !important;
-      border: 2px solid #b88526 !important;
-      color: #000 !important; 
-    }
+.btn-primary:hover {
+  border: 1px solid #130f0d !important;
+  background-color: rgb(0, 0, 0) !important;
+  color: rgb(221, 161, 50) !important;
+  font-weight: 800 !important;
+}
 
-      .btn-primary:hover {
-        border: 1px solid #130f0d !important;
-        background-color: rgb(0, 0, 0) !important;
-        color: rgb(221, 161, 50) !important;
-        font-weight: 800 !important;
-      }
-      /* .btn.btn-primary.btn-outline-primary {
-        border: 1px solid #fbceb5;
-        background: transparent;
-        color: #fbceb5; }
-        .btn.btn-primary.btn-outline-primary:hover {
-          border: 10px solid transparent;
-          background: wheat;
-          color: #000; } */
-  
 .submit {
   width: 18rem;
   height: 3rem;
@@ -248,7 +232,7 @@ sign-in
 }
 
 label {
-  font-size:medium;
+  font-size: medium;
 }
 
 /* end signin */
@@ -256,7 +240,6 @@ label {
 .txt__indent {
   text-indent: 11rem;
 }
-
 
 .defn__style {
   width: 50rem;
@@ -270,7 +253,6 @@ label {
 .margin {
   margin-bottom: 45px;
 }
-
 
 .mb-8 {
   margin-bottom: 8rem;
@@ -297,9 +279,7 @@ label {
 }
 .navbar-toggler:focus {
   box-shadow: none !important;
-
 }
-
 
 .logo__hover:hover {
   /* box-shadow: 0.18rem 0.18rem 0.2rem rgba(0, 0, 0, 0.5); */
@@ -312,14 +292,13 @@ label {
 }
 
 .hover__gold:hover {
-  color:rgb(248, 194, 103);
-
+  color: rgb(248, 194, 103);
 }
 
 .hover__blackbox:hover {
-  color:rgb(248, 194, 103);
   box-shadow: 0 0 0.7em rgba(0, 0, 0, 1);
-  background-color: rgba(0, 0, 0, 0.1em)
+  background-color: rgba(0, 0, 0, 0.1em);
+  border: 0.5px solid black;
 }
 
 /* .navbar-nav .active {
@@ -333,7 +312,7 @@ label {
 }
 
 .list-group-item-action:hover {
-  color:rgb(246, 205, 133);
+  color: rgb(246, 205, 133);
   background-color: rgba(0, 0, 0, 1);
 }
 
@@ -347,7 +326,6 @@ User main styling
 
 .task__btn {
   border-radius: 0 40px 40px 0 !important;
-  
 }
 
 .taskform__style {
@@ -365,12 +343,8 @@ Alert styling
   background-color: rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid #b88526 !important;
   border-radius: 0;
-  box-shadow: 0.10rem 0.10rem 0.5rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.3);
 }
-
-
-
-
 
 /*
 
@@ -386,24 +360,24 @@ Pomoapp styling
 } */
 
 h1 {
-	font-weight: 200;
+  font-weight: 200;
 }
 
 button {
-	background-color: transparent;
-	border: none;
-	outline: none;
-	color: white;
-	font-size: 1.3em;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.3em;
 }
 
 button:disabled {
-	color: rgba(128,128,128,32);
+  color: rgba(128, 128, 128, 32);
 }
 
 .controls-block {
-	display: inline-block;
-	margin: 0 10px 0 10px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
 }
 
 /*.controls-block > * {
@@ -411,59 +385,41 @@ button:disabled {
 }*/
 
 .controls-label {
-	font-size: .8em;
-	font-weight: normal;
-	text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 .control-value {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 .controls-block > button {
-	background-color: transparent;
-	color: white;
-	font-size: 1.5em;
-	min-width: 32px;
-	vertical-align: bottom;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5em;
+  min-width: 32px;
+  vertical-align: bottom;
 }
 
-/* #clock-container {
-	margin-top: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	border: 2px solid;
-	border-color: rgb(154, 202, 39);
-	border-radius: 50%;
-	width: 300px;
-	height: 300px;
-	display: table;
-	overflow: hidden;
-	position: relative;
-} */
-
-/* #clock-content {
-	display: table-cell;
-	vertical-align: middle;
-} */
 
 #clock-counter {
-	font-size: 4em;
-	text-align: center;
-	margin: auto;
+  font-size: 4em;
+  text-align: center;
+  margin: auto;
   line-height: 88%;
   /* border: 1px solid red; */
-	-webkit-font-feature-settings: 'tnum';
-	-moz-font-feature-settings: 'tnum';
-	-ms-font-feature-settings: 'tnum';
+  -webkit-font-feature-settings: "tnum";
+  -moz-font-feature-settings: "tnum";
+  -ms-font-feature-settings: "tnum";
 }
 
 #clock-container > button {
-	border: none;
-	background-color: transparent;
-	color: white;
-	font-size: 1em;
-	/* min-width: 95px; */
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1em;
+  /* min-width: 95px; */
 }
 
 /* #clock-label {
@@ -472,30 +428,31 @@ button:disabled {
 } */
 
 #outer {
-    width: 300px;
-    height: 300px;
-    border: 2px solid #ccc;
-    overflow: hidden;
-    
-    position: relative;
-    
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid #ccc;
+  overflow: hidden;
+
+  position: relative;
+
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
 
-#inner, #inner div {
-    z-index: -1;
-    width: 100%;
-    overflow: hidden;
-    left: -1px;
-    position: absolute;
+#inner,
+#inner div {
+  z-index: -1;
+  width: 100%;
+  overflow: hidden;
+  left: -1px;
+  position: absolute;
 }
 
 #inner {
-    border-top-width: 0;
-    background-color: rgb(154, 202, 39);
+  border-top-width: 0;
+  background-color: rgb(154, 202, 39);
 
-    bottom: 0;
-    height: 0%;
+  bottom: 0;
+  height: 0%;
 }

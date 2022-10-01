@@ -7,85 +7,65 @@
     }
 </style>
 
-<nav class="navbar navbar-light navbar-expand-xl bg-faded justify-content-center">
-    <div class="container flex-xl-row flex-row-reverse">
-        <a href="/" class="navbar-brand d-none d-xl-block">
-            <img src="../assets/dDara-logo-128.png" alt="logo" width="70" height="64">
-            <!-- <span class="align-baseline display-2 logo__styling lightgold">Flourish</span> -->
-        </a>
+        <nav class="navbar navbar-light navbar-expand-xl bg-faded justify-content-center">
+            <div class="container flex-xl-row flex-row-reverse">
+                <a href="/" class="navbar-brand d-none d-xl-block">
+                    <img src="../assets/dDara-logo-128.png" alt="logo" width="70" height="64">
+                </a>
 
-        <button class="navbar-toggler text-uppercase text__shadow lightw logo__hover" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar">
-            Menu <img src="../assets/dDara-logo-128.png" alt="logo" width="70" height="70" class="navbar-brand " > 
-        </button>
+                <button class="navbar-toggler text-uppercase text__shadow lightw logo__hover" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar">
+                    Menu <img src="../assets/dDara-logo-128.png" alt="logo" width="70" height="70" class="navbar-brand " > 
+                </button>
 
-        <div class="navbar-collapse collapse flex-grow-1" id="collapsingNavbar">
-            <ul class="navbar-nav ms-auto flex-nowrap text-uppercase text-end align-items-end">
-                <li class="nav-item">
-                    <a class="nav-link lightw" href="/">Home</a></li>
+                <div class="navbar-collapse collapse flex-grow-1" id="collapsingNavbar">
+                    <ul class="navbar-nav ms-auto flex-nowrap text-uppercase text-end align-items-end">
+                        <li class="nav-item">
+                            <a class="nav-link lightw" href="/">Home</a></li>
 
-                <% if (!currentUser) {%>
-                    <li class="nav-item">
-                        <a class="nav-link lightw" href="/auth/signup">Signup</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link lightw" href="/auth/login">Login</a></li>
-        
-                    <% } else { %>
-                    <li class="nav-item">    
-                        <a class="nav-link lightw" href="/main">My page</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link lightw" href="/profile">Profile</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link lightw" href="/auth/logout">Logout</a></li>
+                        <% if (!currentUser) {%>
+                            <li class="nav-item">
+                                <a class="nav-link lightw" href="/auth/signup">Signup</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link lightw" href="/auth/login">Login</a></li>
+                
+                            <% } else { %>
+                            <li class="nav-item">    
+                                <a class="nav-link lightw" href="/main">My page</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link lightw" href="/profile">Profile</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link lightw" href="/auth/logout">Logout</a></li>
 
-                <% } %>
-            </ul>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container text__shadow justify-content-center">
+            <h1 class="lightgold logo__font">Flourish</h1>
+            <h5 class="lightw">/fləriSH/</h5>
+            <p class="lightw">(of a person, animal, or other living organism) grow or develop in a healthy 
+                or vigorous way, especially as the result of a particularly favorable environment.
+            </p>
+
+            <div class="brand__state text-center text-wrap containerbg mx-auto rounded__corners">
+                <p class="lightw">
+                    Every journey can be long, winding and arduous, <br>
+                    <span class="lightgold">Flourish</span> is a bridge between here and there <br>
+                    A bridge between who you are and who you want to be 
+                </p><br>
+
+                    <p class="text-start lightw" style="text-indent: 5em">To <span class="brand__emph" style="color:wheat; line-height: 1.0;">Inspire</span></p>
+                    <p class="lightw" style="text-indent: 10em"> and <span class="brand__emph" style="color:wheat">Kickstart </span> your day</p>
+                    
+                    <p class="lightw">To help you become the person you most want to be. </p><br>
+
+            </div>
         </div>
-    </div>
-</nav>
-
-
-<div class="container text__shadow justify-content-center">
-    <h1 class="lightgold logo__font">Flourish</h1>
-    <h5 class="lightw">/fləriSH/</h5>
-    <p class="lightw">(of a person, animal, or other living organism) grow or develop in a healthy 
-        or vigorous way, especially as the result of a particularly favorable environment.
-    </p>
-
-    <div class="brand__state text-center text-wrap containerbg mx-auto">
-        <p class="lightw">
-            Every journey can be long, winding and arduous, <br>
-            <span class="lightgold">Flourish</span> is a bridge between here and there <br>
-            A bridge between who you are and who you want to be 
-        </p><br>
-
-            <p class="text-start lightw" style="text-indent: 5em">To <span class="brand__emph" style="color:wheat; line-height: 1.0;">Inspire</span></p>
-            <p class="lightw" style="text-indent: 10em"> and <span class="brand__emph" style="color:wheat">Kickstart </span> your day</p>
-            
-            <p class="lightw">To help you become the person you most want to be. </p><br>
-
-    </div>
-</div>
     
-<!-- 
-<div class="container containerbg text__shadow defn__style">
 
-    <div class="brand__state text-center text-wrap">
-        <p class="lightw">
-            Every journey can be long, winding and arduous, <br>
-            <span class="lightgold">Flourish</span> is a bridge between here and there <br>
-            A bridge between who you are and who you want to be 
-        </p><br>
 
-            <p class="text-start lightw">To <span class="brand__emph" style="color:wheat; line-height: 1.0;">Inspire</span></p>
-            <p class="lightw" style="text-indent: 10rem"> and <span class="brand__emph" style="color:wheat">Kickstart </span> your day</p>
-            
-            <p class="lightw">To help you become the person you most want to be. </p><br>
-
-    </div>
-
-</div> -->
-
-<%- include('../partials/footer') %> 
-
-</body>
+    </body>
 </html>
