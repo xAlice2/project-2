@@ -2,6 +2,9 @@
 
 Flourish is an productivity app designed to have everything a person could need to start their day and do their work in one place.
 
+## Live Preview
+https://flourish-helenaw.herokuapp.com/
+
 ## Features
 * Music
 * Pomodoro Timer
@@ -34,8 +37,6 @@ Flourish is an productivity app designed to have everything a person could need 
 
 ![wireframe v3](https://user-images.githubusercontent.com/86327883/193395730-eab3eebd-7cfb-40e9-9bb9-3ff59200e1b5.png)
 
-## Live Preview
-https://flourish-helenaw.herokuapp.com/
 
 ## Roadmap
 - [ ] Major Bugs: 
