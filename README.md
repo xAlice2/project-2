@@ -27,7 +27,9 @@ https://flourish-helenaw.herokuapp.com/
 ![tables erd](https://user-images.githubusercontent.com/86327883/193395538-d357cd1e-35bf-42cd-95ef-50d995c4ec06.png)
 
 ## Planning
-I'm not a very visual person, I require being able to visually see things together in order to implement the code for it. Everytime I hit a backend roadblock, I came back to chip away at this mountain. You can see the wireframe evolve (in figma) as I try to visualize things I'm looking to do while I was coding the front end. In this phase, I learnt how 
+I need to see things put together in order to implement the code for it. As you can see, I picked out a color theme and then ended up not using it because they wounded up looking too dark or indiscernable. 
+
+Everytime I hit a backend roadblock, I switched gears to work on front end which in itself had a learning curve. You can see the wireframe evolve (in figma) as I try to visualize things I'm looking to do while I was coding the front end. In the beginning, I relied heavily on style.css, later I refactored my code as I picked up more bootstrap. 
 
 ### Idea
 * To get away from the idea of 'work' by removing as many instances of words relating to it as possible
@@ -68,7 +70,7 @@ I thought by creating a productivity app with various features would help me por
 ### The Todo list
 The idea behind this feature is that it renders a list of tasks the user needs to do. When tasks are complete, the user clicks on the checkmarks which sends a boolean where if complete, it is removed from the list. And of course, a textbox with a submit button to add more items to the list. 
 
-Turns out, checkmarks are not a submit function. This became a major bug we (myself + instructional resources) were not able to overcome due to limitations with ejs & HTML. Possibly, React would be a better tool to bridge this gap. 
+Turns out, checkmarks are not a submit function. This became a major bug we (myself + instructional resources) were not able to overcome due to limitations with ejs & HTML. React is probably a better tool to bridge this gap. 
 
 ### The Pomodoro Widget
 The pomodoro timer was another obstacle because it requires JQuery and JavaScript in order to run main functions such as Start/Pause, Reset and increasing the break time or work time. 
