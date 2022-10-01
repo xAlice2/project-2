@@ -100,11 +100,13 @@ app.get('/main', isLoggedIn, (req, res) => {
       ]  //passes the models from the association
   }).then((todo) => {
 
+    console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
     console.log('todos: ' + JSON.stringify(todo))
-    res.render('pages/main', { id: 1, name: 'test1', email:'test2@test.com', todo: {
+    console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+    res.render('pages/main', { todo: {
       notes: todo.notes,
       tasks: todo.taskDetails.map((taskDetail) =>{
-          return { 
+          return {
               complete: taskDetail.complete,
               title: taskDetail.task.title,
               id: taskDetail.id

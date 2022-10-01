@@ -1,5 +1,4 @@
 $('document').ready(function() {
-	console.log(" executing ");
 	//Set default timer lengths (in seconds)
 	var breakTime = 300;
 	var sessionTime = 1500;

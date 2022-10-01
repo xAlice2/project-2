@@ -2,26 +2,32 @@
 
 <!-- <h2>Todo page</h2> -->
 
-<form>
+
   <div class="container containerbg px-4">
     <% if(Array.isArray(todo.tasks) && todo.tasks.length > 0) { %>
-    <% todo.tasks.forEach(function(task) { %>
-        <div class="well">
-          <h2>
-            <form action="./todo/task/<%= task.id %>" method="POST">
-              <input checked=<%= task.complete %> type="checkbox" id="complete" name="complete" onChange="this.form.submit()" value="<%= task.title %>">
-              <span class="task__style"> <%= task.title %></span>
-            </form>
-          </h2>
+      <!-- <form> -->
+        <% todo.tasks.forEach(function(task) { %>
+          <div class="well">
+            <h2>
+              <form action="./todo/task/<%= task.id %>" method="POST">
+                <input type="checkbox" name="complete"
+                value="<%= task.complete %>" checked="<%= task.complete %>">
+                <% console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$') %>
+                <% console.log(task.id + task.title) %> 
+                <% console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$') %>
+                <span class="task__style"> <%= task.title %></span>
+              </form>
+            </h2>
+          </div>
+        <% }) %>
+        <!-- <button type="submit">Submit</button> -->
+      <!-- </form> -->
+    <% } else { %>
+      <div class="panel-body">
+        Yay! Nothing to do!
+      </div>
+  <% } %>
 
-        </div>
-      <% }) %>
-      <% } else { %>
-        <div class="panel-body">
-          Yay! Nothing to do!
-        </div>
-    <% } %>
-</form>
 
 
 
@@ -32,13 +38,11 @@
     </form> -->
 
     <form action="./todo/task" method="POST">
-
       <div class="form-floating input-group d-flex justify-content-center align-items-center py-3">
         <input id="floatingInput" type="title" name="title" class="form-control taskform__style" placeholder="Enter task .." required>
         <label for="floatingInput" class="lightw">Enter task</label>
         <button type="submit" class="btn btn-primary task__btn">add task</button>
       </div>
-
     </form>
 
 

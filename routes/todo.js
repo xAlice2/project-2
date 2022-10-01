@@ -97,8 +97,7 @@ router.post('/task', isLoggedIn, (req, res) => {
     // find our corresponding todo data attached to our user
     // so we can use the todo ID value to update our taskDetails entry
     db.todo.findOne({
-      where: { userId: req.user.id },
-      order: [[ 'createdAt', 'DESC' ]]
+      where: { userId: req.user.id }
     }).then((todo) => {
       /*
         * after getting our todo data result, we can now use that todoId to ensure we update the correct taskDetails entry
@@ -119,13 +118,14 @@ router.post('/task', isLoggedIn, (req, res) => {
         // refer to this documentation
         // https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#applying-where-clauses
         where: {
-          // todoId: todo.id,
+          todoId: todo.id,
           id: parseInt(id), // id is the task ID in this context
         }
       })
     })
     .then(taskDetail => {
-      res.redirect('/main')
+      // res.redirect('/main')
+      console.log(" task details ", taskDetail);
     })
     .catch(error => {
       console.log('==========================post error ==========================')
