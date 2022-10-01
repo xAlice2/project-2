@@ -90,9 +90,37 @@ router.post('/task', isLoggedIn, (req, res) => {
     const { id } = req.params; // retrieve task id from query param
 
     console.log(" ---------------------------------------------");
+    // console.log(" task data ", taskData);
     console.log(" body ", JSON.stringify(req.body));
-    console.log(" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    console.log(" complete ", complete)
+
     const updateDate = new Date().toISOString();
+
+    // if (complete === undefined) {
+    //   console.log(" false ");
+    //   db.taskDetails.update(
+    //     { complete: false, updatedAt: updateDate },
+    //     { where: { taskId: id } }
+    //   ).then((taskDetail) => {
+    //     console.log(" false taskdetails ", taskDetail)
+    //     res.redirect("/main");
+    //   })
+    // } else {
+    //   db.taskDetails.update(
+    //     { complete: true, updatedAt: updateDate },
+    //     { where: { taskId: id } }
+    //   ).then((taskDetail) => {
+    //     console.log(" true taskdetails ", taskDetail)
+    //     res.redirect("/main");
+    //   })
+    // }
+    console.log(" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    
+
+    // db.todo.update(
+    //   { complete: true },
+    //   { where: taskId: ids }
+    // )
 
     // find our corresponding todo data attached to our user
     // so we can use the todo ID value to update our taskDetails entry
@@ -104,28 +132,57 @@ router.post('/task', isLoggedIn, (req, res) => {
         * https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#simple-update-queries
         *
         */
-      console.log(" todo ", JSON.stringify(todo));
-      console.log(" id ", parseInt(id));
-      console.log(" complete ", complete);
-      db.taskDetails.update({
-        // don't get confused by the same value being used here, this is the value from line 89 - const { complete }
-        // we update this field here with the opposite boolean we receive from the 'complete' name
-        complete: complete,
-        // also will need to update the date for when the task was checked/unchecked off
-        updatedAt: updateDate,
-      }, {
-        // we want to make sure we mark the correct task completed, that was why we grabbed the todoId earlier
-        // refer to this documentation
-        // https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#applying-where-clauses
-        where: {
-          todoId: todo.id,
-          id: parseInt(id), // id is the task ID in this context
-        }
-      })
+      console.log(" todo ", todo.id);
+      console.log(" task id ", parseInt(id));
+      if (complete === undefined) {
+        console.log(" false ")
+        db.taskDetails.update({
+          complete: false, updatedAt: updateDate
+        }, {
+          where: {
+            // todoId: todo.id,
+            taskId: parseInt(id),
+          }
+        }).then(taskDetail => {
+          console.log("unchecked task ", taskDetail);
+        })
+
+        db.taskDetails.findOne({
+          where: { taskId: parseInt(id) }
+        }).then((result) => {
+          console.log(" result ", result);
+        })
+      } else {
+        console.log(" true ")
+        db.taskDetails.update({
+          complete: true, updatedAt: updateDate
+        }, {
+          where: {
+            // todoId: todo.id,
+            taskId: parseInt(id),
+          }
+        }).then(taskDetail => {
+          console.log("checked task ", taskDetail);
+        })
+      }
+      // db.taskDetails.update({
+      //   // don't get confused by the same value being used here, this is the value from line 89 - const { complete }
+      //   // we update this field here with the opposite boolean we receive from the 'complete' name
+      //   complete: complete,
+      //   // also will need to update the date for when the task was checked/unchecked off
+      //   updatedAt: updateDate,
+      // }, {
+      //   // we want to make sure we mark the correct task completed, that was why we grabbed the todoId earlier
+      //   // refer to this documentation
+      //   // https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#applying-where-clauses
+      //   where: {
+      //     todoId: todo.id,
+      //     id: parseInt(id), // id is the task ID in this context
+      //   }
+      // })
     })
-    .then(taskDetail => {
-      // res.redirect('/main')
-      console.log(" task details ", taskDetail);
+    .then(() => {
+      res.redirect('/main')
     })
     .catch(error => {
       console.log('==========================post error ==========================')

@@ -5,22 +5,19 @@
 
   <div class="container containerbg px-4">
     <% if(Array.isArray(todo.tasks) && todo.tasks.length > 0) { %>
-      <!-- <form> -->
+      <!-- <form action="./todo/task/update" method="POST"> -->
         <% todo.tasks.forEach(function(task) { %>
           <div class="well">
             <h2>
               <form action="./todo/task/<%= task.id %>" method="POST">
-                <input type="checkbox" name="complete"
-                value="<%= task.complete %>" checked="<%= task.complete %>">
-                <% console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$') %>
-                <% console.log(task.id + task.title) %> 
-                <% console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$') %>
+                <input type="checkbox" name="complete" onChange="this.form.submit()"
+                  value="<%= task.complete %>" />
                 <span class="task__style"> <%= task.title %></span>
               </form>
             </h2>
           </div>
         <% }) %>
-        <!-- <button type="submit">Submit</button> -->
+        <button type="submit">Submit</button>
       <!-- </form> -->
     <% } else { %>
       <div class="panel-body">

@@ -106,10 +106,11 @@ app.get('/main', isLoggedIn, (req, res) => {
     res.render('pages/main', { todo: {
       notes: todo.notes,
       tasks: todo.taskDetails.map((taskDetail) =>{
+          // console.log(" task detail ", taskDetail);
           return {
               complete: taskDetail.complete,
               title: taskDetail.task.title,
-              id: taskDetail.id
+              id: taskDetail.taskId
           }
       })
     } })
