@@ -12,7 +12,7 @@ https://flourish-helenaw.herokuapp.com/
 * Quick access links
 * Motivation station
 
-## Technologies it includes
+## Technologies included
 * Sequelize user model / migration
 * Settings for PostgreSQL
 * Passport and passport-local for authentication
@@ -51,3 +51,21 @@ https://flourish-helenaw.herokuapp.com/
     - [ ] Actual Motivation station with an api for jokes
    
 - [x] ReadMe
+
+
+## Install
+No external dependencies. `npm install` will install all dependencies listed in package.json
+
+
+## Major roadblocks
+I thought by creating a productivity app with various features would help me portion out features I can implement depending on time allowed for this project. Unfortunately, each feature that were intended to meet the criteria for this project broke in unexpected ways. 
+
+### The Todo list
+The idea behind this feature is that it renders a list of tasks the user needs to do. When tasks are complete, the user clicks on the checkmarks which sends a boolean where if complete, it is removed from the list. And of course, a textbox with a submit button to add more items to the list. 
+
+Turns out, checkmarks are not a submit function. This became a major bug we (myself + instructional resources) were not able to overcome due to limitations with ejs & HTML. Possibly, React would be a better tool to bridge this gap. 
+
+### The Pomodoro Widget
+The pomodoro timer was another obstacle because it requires JQuery and JavaScript in order to run main functions such as Start/Pause, Reset and increasing the break time or work time. 
+
+As it turns out, you cannot import a custom JS file as a partial `<%- include('../partials/something.js') %> ` and I learned that the way around this roadblock was to include the `<script></script>` tags including the jquery link in the footer partial and import that into the page that requires it. 
