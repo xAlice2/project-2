@@ -1,26 +1,24 @@
 <%- include('../partials/navcollapsed') %>
 
 <style>
-    body {
-        background-image: url('../assets/am-pexels-ylanite-koppens-796601.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
+  body {
+    background-image: url("../assets/am-pexels-ylanite-koppens-796601.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 </style>
 
-<div class="container">
-    <div class="container mb-5">
-        <h2 class="mb-4 ">Hello, <%= name %>!</h2>
+<div class="container" style="margin-top:8rem">
+  <div class="container mb-5">
+    <h2 class="mb-4">Hello, <%= name %>!</h2>
 
-        <h4 style="text-indent: 3rem">Here is your account info:</h4>
-    </div>
+    <h4 style="text-indent: 3rem">Here is your account info:</h4>
+  </div>
 
-<div class="container align-middle containerbg">
-<p>UserID: <%= id %></p>
-<p>Name: <%= name %></p>
-<p>Email: <%= email %></p>
-
-</div>
-
+  <div class="container align-middle containerbg">
+    <p>UserID: <%= id %></p>
+    <p>Name: <%= name %></p>
+    <p>Email: <%= email %></p>
+  </div>
 </div>

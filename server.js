@@ -154,6 +154,11 @@ app.get('/todo', isLoggedIn, (req, res) => {
   res.render('partials/todo', { id, name, email });
 });
 
+app.get('/pomodoro', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  res.render('partials/pomo/pomodoro', { id, name, email });
+});
+
 app.get('/createtodo', isLoggedIn, (req, res) => {
   const { id, name, email } = req.user.get(); 
   res.render('pages/createTodo', { id, name, email });
