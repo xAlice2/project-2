@@ -65,7 +65,48 @@ router.post('/signup', async (req, res) => {
             successRedirect: '/main',
             successFlash: `Welcome ${user.name}. Account was created and logging in...`
         }
-        // 
+        console.log('userid = ' + user.id);
+        async function createTodo() {
+          try {
+              const cDate = new Date().toISOString();
+              const newTodo = await db.todo.create({
+                  userId: user.id,
+                  createdAt: cDate,
+                  updatedAt: cDate
+              });
+
+              const newTask1 = await db.task.create({
+                  title: "Check off a task to mark them as complete",
+                  createdAt: cDate,
+                  updatedAt: cDate
+              });
+              const newTask2 = await db.task.create({
+                  title: "Type in textbox and press add to add a task",
+                  createdAt: cDate,
+                  updatedAt: cDate
+              });
+              const newTaskDetails1 = await db.taskDetails.create({
+                todoId: newTodo.id,
+                taskId: newTask1.id,
+                complete: false,
+                createdAt: cDate,
+                updatedAt: cDate
+              });
+              const newTaskDetails2 = await db.taskDetails.create({
+                  todoId: newTodo.id,
+                  taskId: newTask2.id,
+                  complete: false,
+                  createdAt: cDate,
+                  updatedAt: cDate
+              });
+              console.log('my new test item todo >>>', newTodo);
+            } catch (error) {
+                console.log('new item was not created b/c of >>>', error);
+            }
+            
+        }
+          createTodo()
+        
         passport.authenticate('local', successObject)(req, res);
     } else {
       // Send back email already exists

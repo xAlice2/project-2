@@ -93,7 +93,7 @@ app.use('/todo', require('./routes/todo'));
 app.get('/main', isLoggedIn, (req, res) => {
   db.todo.findOne({
     where: { userId: req.user.id },
-      order: [[ 'createdAt', 'DESC']],    //sorts by created  DESC
+      // order: [[ 'createdAt', 'DESC']],    //sorts by created  DESC
     include: [ 
       { model: db.taskDetails, include:[db.task] }, 
       db.note 
@@ -104,9 +104,8 @@ app.get('/main', isLoggedIn, (req, res) => {
     console.log('todos: ' + JSON.stringify(todo))
     console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
     res.render('pages/main', { todo: {
-      notes: todo.notes,
+      // notes: todo.notes,
       tasks: todo.taskDetails.map((taskDetail) =>{
-          // console.log(" task detail ", taskDetail);
           return {
               complete: taskDetail.complete,
               title: taskDetail.task.title,
@@ -126,13 +125,13 @@ app.get('/main', isLoggedIn, (req, res) => {
     where: { userId: req.params.id },  
     include: [ 
       { model: db.taskDetails, include:[db.task] }, 
-      db.note 
+      // db.note 
       ]  //passes the models from the association
   }).then((todo) => {
 
     console.log('todos: ' + JSON.stringify(todo))
     res.render('pages/main', { id, name, email, todo: {
-      notes: todo.notes,
+      // notes: todo.notes,
       tasks: todo.taskDetails.map((taskDetail) =>{
           return { 
               complete: taskDetail.complete,
