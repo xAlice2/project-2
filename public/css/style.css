@@ -76,9 +76,12 @@ img {
 
 
 .containerbg {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   
   /* padding: 1rem; */
+}
+.rounded__corners {
+  border-radius: 1rem;
 }
 
 /* font styling */
@@ -313,6 +316,12 @@ label {
 
 }
 
+.hover__blackbox:hover {
+  color:rgb(248, 194, 103);
+  box-shadow: 0 0 0.7em rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 0.1em)
+}
+
 /* .navbar-nav .active {
   color: red;
 } */
@@ -325,7 +334,7 @@ label {
 
 .list-group-item-action:hover {
   color:rgb(246, 205, 133);
-  background-color: rgba(0, 0, 0, 1);;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 /*
