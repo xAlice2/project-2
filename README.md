@@ -68,4 +68,4 @@ Turns out, checkmarks are not a submit function. This became a major bug we (mys
 ### The Pomodoro Widget
 The pomodoro timer was another obstacle because it requires JQuery and JavaScript in order to run main functions such as Start/Pause, Reset and increasing the break time or work time. 
 
-As it turns out, you cannot import a custom JS file as a partial `<%- include('../partials/something.js') %> ` and I learned that the way around this roadblock was to include the `<script></script>` tags including the jquery link in the footer partial and import that into the page that requires it. 
+As it turns out, you cannot import a custom JS file as a partial `<%- include('../partials/something.js') %>` and I learned that the way around this roadblock was to include the `<script></script>` tags including the jquery link in the footer partial and import that into the page that requires it. 
